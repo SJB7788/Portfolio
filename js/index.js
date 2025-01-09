@@ -30,8 +30,8 @@ class ScrollView {
         }
     }
 
-    moveNodeToRight() {
-        this.hideHiddenNodes();
+    moveNodeToLeft() {
+        this.hideHiddenNodes(true);
         const lastNode = this.node_array.pop();
         this.node_array.unshift(lastNode);
 
@@ -40,7 +40,25 @@ class ScrollView {
 
         const focusedNode = this.node_array[focusedNodeIndex];
         const prevFocusedNode = this.node_array[focusedNodeIndex + 1];
-        
+
+        this.moveNodes(focusedNode, prevFocusedNode);
+    }
+
+    moveNodeToRight() {
+        this.hideHiddenNodes(false);
+        const firstNode = this.node_array.splice(0, 1)[0];
+        this.node_array.push(firstNode);
+
+        let focusedNodeIndex = this.size / 2;
+        focusedNodeIndex = Math.round(focusedNodeIndex) - 1;
+
+        const focusedNode = this.node_array[focusedNodeIndex];
+        const prevFocusedNode = this.node_array[focusedNodeIndex - 1];
+
+        this.moveNodes(focusedNode, prevFocusedNode);
+    }
+
+    moveNodes(focusedNode, prevFocusedNode, ) {
         for (let i = 0; i < this.size; i++) {
             const offsetY = this.node_width * i;
             this.node_array[i].style.transform = `translateX(${offsetY}px)`;
@@ -54,10 +72,6 @@ class ScrollView {
         }, 100);
     }
 
-    moveNodeToLeft() {
-
-    }
-
     focusNode(node) {
         node.classList.remove("card_non_focus");
         node.classList.add("card_focus");
@@ -68,12 +82,16 @@ class ScrollView {
         node.classList.add("card_non_focus");    
     }
 
-    hideHiddenNodes() {
-        this.node_array[4].classList.add("card_hidden");
+    hideHiddenNodes(isDirectionLeft) {
+        if (isDirectionLeft) {
+            this.node_array[this.size - 1].classList.add("card_hidden");
+        } else {
+            this.node_array[0].classList.add("card_hidden");
+        }
     }
 
     showHiddenNodes() {
-        this.node_array[0].classList.remove("card_hidden");
+        this.node_array.forEach(node => node.classList.remove("card_hidden"));
     }
 
     insertNode(node) {
@@ -92,7 +110,7 @@ const scrollView = new ScrollView(700);
 skillCards.forEach(card => scrollView.insertNode(card));
 scrollView.initializeScrollView();
 
-leftArrowIcon.addEventListener('click', moveSkillCards);
+leftArrowIcon.addEventListener('click', () => scrollView.moveNodeToLeft());
 rightArrowIcon.addEventListener('click', () => scrollView.moveNodeToRight());
 
 
