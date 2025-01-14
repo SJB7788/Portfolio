@@ -21,6 +21,7 @@ class ScrollView {
         this.node_array = [];
         this.node_width = node_width;
         this.size = 0;
+        this.scrollStatus = true;
     }
 
     initializeScrollView() {
@@ -31,6 +32,8 @@ class ScrollView {
     }
 
     moveNodeToLeft() {
+        if (!this.scrollStatus) return;
+
         this.hideHiddenNodes(true);
         const lastNode = this.node_array.pop();
         this.node_array.unshift(lastNode);
@@ -45,6 +48,8 @@ class ScrollView {
     }
 
     moveNodeToRight() {
+        if (!this.scrollStatus) return;
+
         this.hideHiddenNodes(false);
         const firstNode = this.node_array.splice(0, 1)[0];
         this.node_array.push(firstNode);
@@ -59,6 +64,7 @@ class ScrollView {
     }
 
     moveNodes(focusedNode, prevFocusedNode, ) {
+        this.scrollStatus = false;
         for (let i = 0; i < this.size; i++) {
             const offsetY = this.node_width * i;
             this.node_array[i].style.transform = `translateX(${offsetY}px)`;
@@ -70,6 +76,8 @@ class ScrollView {
         setTimeout(() => {
             this.showHiddenNodes();
         }, 100);
+
+        setTimeout(() => {this.scrollStatus = true;}, 500);
     }
 
     focusNode(node) {
