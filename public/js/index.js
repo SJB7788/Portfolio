@@ -23,6 +23,16 @@ rightArrowIcon.addEventListener("click", () => scrollView.moveNodeToRight());
 // Projects Section
 
 // Vertical Scroll Configuration
+const projectMarginContainer = document.getElementById("project_scroll__container");
+const scrollContainer = document.getElementById("project__scroll");
+const scrollContainerRect = scrollContainer.getBoundingClientRect();
+const scrollContainerHeight = scrollContainerRect.height;
+
+console.log(scrollContainerHeight);
+
+
+projectMarginContainer.style.setProperty("--project-stack-height", scrollContainerHeight);
+
 const projectContainer = document.getElementById("project__container");
 
 const projectRect = projectContainer.getBoundingClientRect();
@@ -33,7 +43,6 @@ class VerticalScrollGallery {
     this.nodeArray = nodeArray;
     this.size = nodeArray.length;
     this.offsetY = offsetY;
-    console.log(nodeArray);
 
     const firstNodeRect = nodeArray[0].getBoundingClientRect();
     
@@ -53,6 +62,12 @@ class VerticalScrollGallery {
     }
   }
 
+  resetNodes() {
+    for (let i = 1; i <= this.size - 1; i++) {
+      this.nodeArray[i].style.transform = `translateY(${0}px)`;
+    }
+  }
+
   insertNode(node) {
     this.nodeArray.push(node);
   }
@@ -64,13 +79,13 @@ class VerticalScrollGallery {
 
 const projectNodeArray = document.querySelectorAll(".project__card");
 
-const projectScrollGallery = new VerticalScrollGallery(projectNodeArray, 20);
+const projectScrollGallery = new VerticalScrollGallery(projectNodeArray, 30);
 
 document.addEventListener("scroll", () => {
-    console.log(document.documentElement.scrollTop);
-    
   if (window.scrollY >= projectYPos) {
     const nodeScrollValue = document.documentElement.scrollTop - projectYPos;
     projectScrollGallery.moveNodes(nodeScrollValue);
+  } else {
+    projectScrollGallery.resetNodes()
   }
 });
