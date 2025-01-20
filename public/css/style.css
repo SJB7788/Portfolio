@@ -3,6 +3,10 @@
   --circle-bg-color: #70D4D4;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 25px;
   background-color: var(--main-bg-color);
@@ -91,7 +95,6 @@ section {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
 }
 
 #skills__div > h1 {
@@ -124,7 +127,6 @@ section {
   position: absolute;
   left: 0;
   width: 600px;
-  box-sizing: border-box;
   padding: 50px 50px;
   border-radius: 20px;
   background-color: #959698;
@@ -157,7 +159,6 @@ section {
   position: absolute;
   width: 100vw;
   padding: 0 75px;
-  box-sizing: border-box;
   top: 50%;
   transform: translateY(-50%);
   transform: translateX(-50%);
@@ -176,7 +177,6 @@ section {
 
 #project__div {
   position: relative;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -195,10 +195,10 @@ section {
 }
 
 #project__scroll {
-  position: relative;
-  height: auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 71px;
+  height: 2000px;
 }
 
 .project__card {
@@ -206,12 +206,11 @@ section {
   width: 500px;
   padding: 75px 0;
   border-radius: 20px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .project__card > p,
@@ -255,5 +254,5 @@ section {
 
 #project_scroll__container {
   min-height: 100px;
-  margin-top: 220vh;
+  margin-top: var(--project-stack-height);
 }

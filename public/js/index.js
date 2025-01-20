@@ -1,8 +1,15 @@
 import ScrollView from "../components/ScrollView.js";
+import VeritcalScrollGallery from "../components/VeritcalScrollGallery.js";
 
 // window.addEventListener("load", () => {
 
 // });
+
+// Title Section
+
+// Bubbles
+
+
 
 // Skills Section
 
@@ -20,66 +27,26 @@ scrollView.initializeScrollView();
 leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
 rightArrowIcon.addEventListener("click", () => scrollView.moveNodeToRight());
 
+
 // Projects Section
 
-// Vertical Scroll Configuration
 const projectMarginContainer = document.getElementById("project_scroll__container");
 const scrollContainer = document.getElementById("project__scroll");
+const projectContainer = document.getElementById("project__container");
+
+// Vertical Scroll Configuration
 const scrollContainerRect = scrollContainer.getBoundingClientRect();
 const scrollContainerHeight = scrollContainerRect.height;
 
-console.log(scrollContainerHeight);
+projectMarginContainer.style.setProperty("--project-stack-height", `${scrollContainerHeight}px`); // set project margin container property
+
+const projectNodeArray = document.querySelectorAll(".project__card"); 
+const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(projectNodeArray, 30);
 
 
-projectMarginContainer.style.setProperty("--project-stack-height", scrollContainerHeight);
-
-const projectContainer = document.getElementById("project__container");
-
+// Scroll Event Logic
 const projectRect = projectContainer.getBoundingClientRect();
 const projectYPos = projectRect.top + window.scrollY;
-
-class VerticalScrollGallery {
-  constructor(nodeArray, offsetY) {
-    this.nodeArray = nodeArray;
-    this.size = nodeArray.length;
-    this.offsetY = offsetY;
-
-    const firstNodeRect = nodeArray[0].getBoundingClientRect();
-    
-    this.staticPos = firstNodeRect.top + document.documentElement.scrollTop;
-    this.nodeSize = firstNodeRect.height;
-  }
-
-  moveNodes(scrollValue) {
-    for (let i = 1; i <= this.size - 1; i++) {
-        const offset = this.nodeSize;
-
-      if (scrollValue <= offset * i) {
-        this.nodeArray[i].style.transform = `translateY(-${scrollValue}px)`;
-      } else if (scrollValue > offset * i) {
-        this.nodeArray[i].style.transform = `translateY(-${offset * i}px)`;
-      }
-    }
-  }
-
-  resetNodes() {
-    for (let i = 1; i <= this.size - 1; i++) {
-      this.nodeArray[i].style.transform = `translateY(${0}px)`;
-    }
-  }
-
-  insertNode(node) {
-    this.nodeArray.push(node);
-  }
-
-  getNodeArray() {
-    return this.nodeArray;
-  }
-}
-
-const projectNodeArray = document.querySelectorAll(".project__card");
-
-const projectScrollGallery = new VerticalScrollGallery(projectNodeArray, 30);
 
 document.addEventListener("scroll", () => {
   if (window.scrollY >= projectYPos) {
