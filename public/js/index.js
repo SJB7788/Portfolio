@@ -5,13 +5,80 @@ import VeritcalScrollGallery from "../components/VeritcalScrollGallery.js";
 
 // });
 
-// Title Section
+// ** Title Section **
+
+
+const titleSectionContainer = document.getElementById("title__container");
 
 // Bubbles
+class Bubbles {
+  constructor(container, numOfBubbles, color, moveSpeed) {
+    this.container = container;
+    this.size = numOfBubbles;
+    this.color = color;
+    this.moveSpeed = moveSpeed;
+    this.bubbleArray = [];
+
+    const containerRect = container.getBoundingClientRect();
+    this.xLimit = containerRect.width;
+    this.yLimit = containerRect.height;    
+
+    this.createBubbles(numOfBubbles, color);
+
+    setInterval(() => {
+      this.moveBubbles();
+    }, 5000)
+  }
+  
+  createBubbles(numOfBubbles, color) {
+
+    for (let i = 0; i < numOfBubbles; ++i) {
+      const bubble = document.createElement("div");
+
+      const randomXPos = Math.floor(Math.random() * this.xLimit);
+      const randomYPos = Math.floor(Math.random() * this.yLimit);
+
+      bubble.className = "bubbles"
+      bubble.style.backgroundColor = color;
+      bubble.style.top = `${randomYPos}px`
+      bubble.style.left = `${randomXPos}px`
+
+      this.bubbleArray.push(bubble);
+      this.container.appendChild(bubble);
+    }
+  }
+
+  moveBubbles() {
+    for (let i = 0; i < this.size; ++i) {
+      const bubbleXPos = Number.parseInt(this.bubbleArray[i].style.left.slice(0, 3));
+      const bubbleYPos = Number.parseInt(this.bubbleArray[i].style.top.slice(0, 3));
+      
+      const randomXPos = Math.floor(Math.random() * 2) === 1 ? -1 : 1;
+      const randomYPos = Math.floor(Math.random() * 2) === 1 ? -1 : 1;
+      
+      let newXPos = bubbleXPos + (this.moveSpeed * randomXPos); 
+      let newYPos = bubbleYPos + (this.moveSpeed * randomYPos);
+
+      if (newXPos < 0 || newXPos > this.xLimit) {
+        newXPos *= -1;
+      
+      }
+      
+      if (newYPos < 0 || newYPos > this.yLimit) {
+        newYPos *= -1;
+      }
+
+      this.bubbleArray[i].style.top = `${newYPos}px`;
+      this.bubbleArray[i].style.left = `${newXPos}px`;      
+    }
+  }
+}
+
+const bubble = new Bubbles(titleSectionContainer, 2, "#AADCEC", 300);
 
 
+// ** Skills Section **
 
-// Skills Section
 
 // ScrollView Initialization
 const leftArrowIcon = document.getElementById("left-arrow");
@@ -28,7 +95,8 @@ leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
 rightArrowIcon.addEventListener("click", () => scrollView.moveNodeToRight());
 
 
-// Projects Section
+// ** Projects Section **
+
 
 const projectMarginContainer = document.getElementById("project_scroll__container");
 const scrollContainer = document.getElementById("project__scroll");
@@ -42,7 +110,6 @@ projectMarginContainer.style.setProperty("--project-stack-height", `${scrollCont
 
 const projectNodeArray = document.querySelectorAll(".project__card"); 
 const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(projectNodeArray, 30);
-
 
 // Scroll Event Logic
 const projectRect = projectContainer.getBoundingClientRect();

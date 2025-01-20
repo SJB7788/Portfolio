@@ -1,6 +1,6 @@
 :root {
   --main-bg-color: #f1f1f2;
-  --circle-bg-color: #70D4D4;
+  --circle-bg-color: #70d4d4;
 }
 
 * {
@@ -42,7 +42,18 @@ section {
 }
 
 #title__container {
+  position: relative;
   height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
+.bubbles {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(50px);
+  transition: left 7000ms ease-in, top 7000ms ease-in;
 }
 
 #skills__container,
@@ -60,29 +71,31 @@ section {
 }
 
 #title__text--container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 150px 0 0 120px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 150px 0 0 120px;
 }
 
 #title__text--container > h1 {
-    margin: 0;
-    font-family: "Bitter", serif;
-    font-weight: 300;
-    font-size: 4rem;
-    font-style: normal;
-    color: #1D3D6F;
+  margin: 0;
+  font-family: "Bitter", serif;
+  font-weight: 300;
+  font-size: 4rem;
+  font-style: normal;
+  color: #1d3d6f;
 }
 
 #title__text--container > h1 > span {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 #title__text--container > p {
-    font-family: "Bitter", serif;
-    font-size: 1.6rem;
-    font-weight: 300;
+  font-family: "Bitter", serif;
+  font-size: 1.6rem;
+  font-weight: 300;
 }
 
 #skills__container {
@@ -103,7 +116,7 @@ section {
   font-weight: 600;
   font-size: 6rem;
   font-style: normal;
-  color: #1D3D6F;
+  color: #1d3d6f;
 }
 
 #skills_card__container {
@@ -130,7 +143,8 @@ section {
   padding: 50px 50px;
   border-radius: 20px;
   background-color: #959698;
-  transition: transform 500ms ease-in, height 500ms ease-in-out, filter 500ms ease-in-out, opacity 500ms ease-in-out;
+  transition: transform 500ms ease-in, height 500ms ease-in-out,
+    filter 500ms ease-in-out, opacity 500ms ease-in-out;
 }
 
 .card_focus {
@@ -166,13 +180,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 #project__container {
   top: 25px;
   position: sticky;
-  background-color: #E9E8EE;
+  background-color: #e9e8ee;
 }
 
 #project__div {
@@ -185,13 +198,13 @@ section {
   padding: 100px;
 }
 
-#project__div > h1{
+#project__div > h1 {
   margin: 0;
   font-family: "Bitter", serif;
   font-weight: 600;
   font-size: 6rem;
   font-style: normal;
-  color: #1D3D6F;
+  color: #1d3d6f;
 }
 
 #project__scroll {
@@ -236,7 +249,7 @@ section {
 }
 
 #snowscraper__card {
-  background-color: #B6CAE0;
+  background-color: #b6cae0;
   color: #ffffff;
 }
 
