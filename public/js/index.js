@@ -27,7 +27,7 @@ class Bubbles {
 
     setInterval(() => {
       this.moveBubbles();
-    }, 5000)
+    }, 10000)
   }
   
   createBubbles(numOfBubbles, color) {
@@ -57,7 +57,7 @@ class Bubbles {
       const randomYPos = Math.floor(Math.random() * 2) === 1 ? -1 : 1;
       
       let newXPos = bubbleXPos + (this.moveSpeed * randomXPos); 
-      let newYPos = bubbleYPos + (this.moveSpeed * randomYPos);
+      let newYPos = bubbleYPos + ((this.moveSpeed / 2) * randomYPos);
 
       if (newXPos < 0 || newXPos > this.xLimit) {
         newXPos *= -1;
@@ -109,7 +109,7 @@ const scrollContainerHeight = scrollContainerRect.height;
 projectMarginContainer.style.setProperty("--project-stack-height", `${scrollContainerHeight}px`); // set project margin container property
 
 const projectNodeArray = document.querySelectorAll(".project__card"); 
-const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(projectNodeArray, 30);
+const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(projectNodeArray, 10);
 
 // Scroll Event Logic
 const projectRect = projectContainer.getBoundingClientRect();

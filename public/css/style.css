@@ -52,8 +52,8 @@ section {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  filter: blur(50px);
-  transition: left 7000ms ease-in, top 7000ms ease-in;
+  filter: blur(100px);
+  transition: left 10000ms ease-in, top 10000ms ease-in;
 }
 
 #skills__container,
@@ -211,12 +211,12 @@ section {
   display: flex;
   flex-direction: column;
   margin-bottom: 71px;
-  height: 2000px;
+  height: 2600px;
 }
 
 .project__card {
-  height: 500px;
-  width: 500px;
+  min-height: 650px;
+  width: 700px;
   padding: 75px 0;
   border-radius: 20px;
   display: flex;
