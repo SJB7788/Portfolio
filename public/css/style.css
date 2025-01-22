@@ -119,54 +119,108 @@ section {
   color: #1d3d6f;
 }
 
-#skills_card__container {
-  flex-grow: 1;
-}
-
 #skills__scroll {
   position: absolute;
   display: flex;
-  width: 3400px;
+  width: 7500px;
   height: 400px;
   flex-direction: row;
-  gap: 100px;
   left: calc(50%);
   transform: translateX(-50%);
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .skills__card {
   position: absolute;
   left: 0;
-  width: 600px;
+  height: 500px;
+  width: 1500px;
   padding: 50px 50px;
   border-radius: 20px;
-  background-color: #959698;
-  transition: transform 500ms ease-in, height 500ms ease-in-out,
-    filter 500ms ease-in-out, opacity 500ms ease-in-out;
+  transition: transform 500ms ease-in, background-color 500ms ease-in, color 500ms ease-in;
+}
+
+.skills__card > h3 {
+  margin: 0;
+  font-family: "Bitter", serif;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.skills__card > p {
+  margin: 10px 0 0 0;
+  font-family: "Bitter", serif;
+  font-weight: 300;
 }
 
 .card_focus {
-  height: 400px;
+  background-color: #9799A6;
+}
+
+.card_focus > h3,
+.card_focus > p {
+  color: #ffffff;
 }
 
 .card_non_focus {
-  filter: blur(2px);
-  opacity: 0.5;
-  height: 325px;
+  background-color: #E9E8EE;
+}
+
+.card_non_focus > h3,
+.card_non_focus > p {
+  color: black;
 }
 
 .card_hidden {
   transition: none !important;
 }
 
-.skills__card > h3 {
-  margin: 0;
-  color: #ffffff;
+#language_list_container {
+  position: absolute;
+  left: 50%;
+  top: calc(50%);
+  transform: translate(-50%, calc(-50% + 1em + 16px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#language_list_container > ul { 
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+#language_list_container > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.language-icon {
+  font-size: 6em;
+  color: white;
+}
+
+.language-name {
+  color: white;
   font-family: "Bitter", serif;
-  font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 1em;
+  transition: opacity 100ms ease-in;
+}
+
+#right-arrow, #left-arrow {
+  transition: opacity 100ms ease-in;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#right-arrow:hover, #left-arrow:hover {
+  opacity: 1;
 }
 
 #skills__arrow__container {

@@ -1,14 +1,19 @@
 class ScrollView {
-    constructor(node_width) {
+    constructor(node_array, offset) {
         this.node_array = [];
-        this.node_width = node_width;
-        this.size = 0;
+        node_array.forEach(node => this.node_array.push(node)); // this is necessary i guess
+        
+        this.size = node_array.length;
+        this.offset = offset;
         this.scrollStatus = true;
+
+        const nodeRect = node_array[0].getBoundingClientRect();
+        this.node_width = nodeRect.width;        
     }
 
     initializeScrollView() {
         for (let i = 0; i < this.size; i++) {
-            const offsetY = this.node_width * i;
+            const offsetY = (this.node_width + this.offset) * i;            
             this.node_array[i].style.transform = `translateX(${offsetY}px)`;
         }
     }
@@ -45,10 +50,11 @@ class ScrollView {
         this.moveNodes(focusedNode, prevFocusedNode);
     }
 
-    moveNodes(focusedNode, prevFocusedNode, ) {
+    moveNodes(focusedNode, prevFocusedNode) {
         this.scrollStatus = false;
+
         for (let i = 0; i < this.size; i++) {
-            const offsetY = this.node_width * i;
+            const offsetY = (this.node_width + this.offset) * i;
             this.node_array[i].style.transform = `translateX(${offsetY}px)`;
         }
 

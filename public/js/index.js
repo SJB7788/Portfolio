@@ -1,9 +1,10 @@
 import ScrollView from "../components/ScrollView.js";
 import VeritcalScrollGallery from "../components/VeritcalScrollGallery.js";
 
-// window.addEventListener("load", () => {
-
-// });
+// Scroll to top when website reloads (very cool)
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
 // ** Title Section **
 
@@ -31,7 +32,6 @@ class Bubbles {
   }
   
   createBubbles(numOfBubbles, color) {
-
     for (let i = 0; i < numOfBubbles; ++i) {
       const bubble = document.createElement("div");
 
@@ -72,6 +72,8 @@ class Bubbles {
       this.bubbleArray[i].style.left = `${newXPos}px`;      
     }
   }
+
+  
 }
 
 const bubble = new Bubbles(titleSectionContainer, 2, "#AADCEC", 300);
@@ -87,13 +89,29 @@ const rightArrowIcon = document.getElementById("right-arrow");
 const skillCardContainer = document.getElementById("skills__scroll");
 const skillCards = document.querySelectorAll(".skills__card");
 
-const scrollView = new ScrollView.ScrollView(700);
-skillCards.forEach((card) => scrollView.insertNode(card));
+const scrollView = new ScrollView.ScrollView(skillCards, 5);
 scrollView.initializeScrollView();
 
 leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
 rightArrowIcon.addEventListener("click", () => scrollView.moveNodeToRight());
 
+// Language Card
+// const languageListElement = document.querySelectorAll(".language-list-element");
+// languageListElement.forEach(element => {  
+//   element.addEventListener("mouseover", () => {
+//     console.log("in");
+//     if (element.hasChildNodes()) {
+//       element.childNodes[3].style.opacity = 1;
+//     };
+//   });
+  
+//   element.addEventListener("mouseout", () => {
+//     console.log("out");
+//     if (element.hasChildNodes()) {
+//       element.childNodes[3].style.opacity = 0;
+//     };
+//   });
+// });
 
 // ** Projects Section **
 
