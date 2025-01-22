@@ -50,6 +50,7 @@ class ScrollView {
         this.moveNodes(focusedNode, prevFocusedNode);
     }
 
+    // change this so that it moves the card container, not individual nodes
     moveNodes(focusedNode, prevFocusedNode) {
         this.scrollStatus = false;
 
