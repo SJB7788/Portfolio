@@ -4,10 +4,9 @@ import VeritcalScrollGallery from "../components/VeritcalScrollGallery.js";
 // Scroll to top when website reloads (very cool)
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
-}
+};
 
 // ** Title Section **
-
 
 const titleSectionContainer = document.getElementById("title__container");
 
@@ -22,15 +21,15 @@ class Bubbles {
 
     const containerRect = container.getBoundingClientRect();
     this.xLimit = containerRect.width;
-    this.yLimit = containerRect.height;    
+    this.yLimit = containerRect.height;
 
     this.createBubbles(numOfBubbles, color);
 
     setInterval(() => {
       this.moveBubbles();
-    }, 10000)
+    }, 10000);
   }
-  
+
   createBubbles(numOfBubbles, color) {
     for (let i = 0; i < numOfBubbles; ++i) {
       const bubble = document.createElement("div");
@@ -38,10 +37,10 @@ class Bubbles {
       const randomXPos = Math.floor(Math.random() * this.xLimit);
       const randomYPos = Math.floor(Math.random() * this.yLimit);
 
-      bubble.className = "bubbles"
+      bubble.className = "bubbles";
       bubble.style.backgroundColor = color;
-      bubble.style.top = `${randomYPos}px`
-      bubble.style.left = `${randomXPos}px`
+      bubble.style.top = `${randomYPos}px`;
+      bubble.style.left = `${randomXPos}px`;
 
       this.bubbleArray.push(bubble);
       this.container.appendChild(bubble);
@@ -50,37 +49,36 @@ class Bubbles {
 
   moveBubbles() {
     for (let i = 0; i < this.size; ++i) {
-      const bubbleXPos = Number.parseInt(this.bubbleArray[i].style.left.slice(0, 3));
-      const bubbleYPos = Number.parseInt(this.bubbleArray[i].style.top.slice(0, 3));
-      
+      const bubbleXPos = Number.parseInt(
+        this.bubbleArray[i].style.left.slice(0, 3)
+      );
+      const bubbleYPos = Number.parseInt(
+        this.bubbleArray[i].style.top.slice(0, 3)
+      );
+
       const randomXPos = Math.floor(Math.random() * 2) === 1 ? -1 : 1;
       const randomYPos = Math.floor(Math.random() * 2) === 1 ? -1 : 1;
-      
-      let newXPos = bubbleXPos + (this.moveSpeed * randomXPos); 
-      let newYPos = bubbleYPos + ((this.moveSpeed / 2) * randomYPos);
+
+      let newXPos = bubbleXPos + this.moveSpeed * randomXPos;
+      let newYPos = bubbleYPos + (this.moveSpeed / 2) * randomYPos;
 
       if (newXPos < 0 || newXPos > this.xLimit) {
         newXPos *= -1;
-      
       }
-      
+
       if (newYPos < 0 || newYPos > this.yLimit) {
         newYPos *= -1;
       }
 
       this.bubbleArray[i].style.top = `${newYPos}px`;
-      this.bubbleArray[i].style.left = `${newXPos}px`;      
+      this.bubbleArray[i].style.left = `${newXPos}px`;
     }
   }
-
-  
 }
 
 const bubble = new Bubbles(titleSectionContainer, 2, "#AADCEC", 300);
 
-
 // ** Skills Section **
-
 
 // ScrollView Initialization
 const leftArrowIcon = document.getElementById("left-arrow");
@@ -96,27 +94,34 @@ leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
 rightArrowIcon.addEventListener("click", () => scrollView.moveNodeToRight());
 
 // Language Card
-// const languageListElement = document.querySelectorAll(".language-list-element");
-// languageListElement.forEach(element => {  
-//   element.addEventListener("mouseover", () => {
-//     console.log("in");
-//     if (element.hasChildNodes()) {
-//       element.childNodes[3].style.opacity = 1;
-//     };
-//   });
-  
-//   element.addEventListener("mouseout", () => {
-//     console.log("out");
-//     if (element.hasChildNodes()) {
-//       element.childNodes[3].style.opacity = 0;
-//     };
-//   });
-// });
+const skillIcons = document.querySelectorAll(".skill-icon");
+
+skillIcons.forEach((icon) => {
+  icon.addEventListener("mouseover", () => { // if mouse over
+    const iconPaths = icon.getElementsByClassName("skill-icon-path"); // get all the child nodes that has that class name
+    const pathArray = Array.from(iconPaths); // turn HTML collection to Array
+
+    pathArray.forEach((path) => {
+      if (path.attributes.originalfill) { // if it has the original fill attribute
+        const originalFillColor = path.getAttribute("originalfill"); // get the attribute value
+        path.setAttribute("fill", originalFillColor); // change the fill to the attribute value
+      }
+    });
+  });
+
+  icon.addEventListener("mouseout", () => { // if mouse not over
+    const iconPaths = icon.getElementsByClassName("skill-icon-path"); // get all child nodes that has this attirebute
+    const pathArray = Array.from(iconPaths); // turn HTML collection to Array
+
+    pathArray.forEach((path) => path.setAttribute("fill", "#FFFFFF")); // change all fill attribute to white
+  });
+});
 
 // ** Projects Section **
 
-
-const projectMarginContainer = document.getElementById("project_scroll__container");
+const projectMarginContainer = document.getElementById(
+  "project_scroll__container"
+);
 const scrollContainer = document.getElementById("project__scroll");
 const projectContainer = document.getElementById("project__container");
 
@@ -124,10 +129,16 @@ const projectContainer = document.getElementById("project__container");
 const scrollContainerRect = scrollContainer.getBoundingClientRect();
 const scrollContainerHeight = scrollContainerRect.height;
 
-projectMarginContainer.style.setProperty("--project-stack-height", `${scrollContainerHeight}px`); // set project margin container property
+projectMarginContainer.style.setProperty(
+  "--project-stack-height",
+  `${scrollContainerHeight}px`
+); // set project margin container property
 
-const projectNodeArray = document.querySelectorAll(".project__card"); 
-const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(projectNodeArray, 10);
+const projectNodeArray = document.querySelectorAll(".project__card");
+const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
+  projectNodeArray,
+  10
+);
 
 // Scroll Event Logic
 const projectRect = projectContainer.getBoundingClientRect();
@@ -138,6 +149,6 @@ document.addEventListener("scroll", () => {
     const nodeScrollValue = document.documentElement.scrollTop - projectYPos;
     projectScrollGallery.moveNodes(nodeScrollValue);
   } else {
-    projectScrollGallery.resetNodes()
+    projectScrollGallery.resetNodes();
   }
 });
