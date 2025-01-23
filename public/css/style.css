@@ -207,13 +207,11 @@ section {
 
 .skill-icon {
   cursor: pointer;
-  font-size: 6em;
   width: 100px;
-  color: white;
 }
 
 .skill-icon-path {
-  transition: fill 100ms ease-in;
+  transition: fill 200ms ease-in;
 }
 
 .language-name, .skill-name {
