@@ -87,7 +87,7 @@ const rightArrowIcon = document.getElementById("right-arrow");
 const skillCardContainer = document.getElementById("skills__scroll");
 const skillCards = document.querySelectorAll(".skills__card");
 
-const scrollView = new ScrollView.ScrollView(skillCards, 5);
+const scrollView = new ScrollView.ScrollView(skillCards, skillCardContainer, 5);
 scrollView.initializeScrollView();
 
 leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());

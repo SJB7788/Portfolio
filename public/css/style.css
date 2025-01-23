@@ -123,7 +123,6 @@ section {
   z-index: 1;
   position: absolute;
   display: flex;
-  width: 7500px;
   height: 400px;
   flex-direction: row;
   left: calc(50%);
@@ -136,7 +135,7 @@ section {
   position: absolute;
   left: 0;
   height: 500px;
-  width: 1500px;
+  width: 80vw;
   padding: 50px 50px;
   border-radius: 20px;
   transition: transform 500ms ease-in, background-color 500ms ease-in, color 500ms ease-in;

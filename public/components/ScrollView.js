@@ -1,14 +1,15 @@
 class ScrollView {
-    constructor(node_array, offset) {
-        this.node_array = [];
-        node_array.forEach(node => this.node_array.push(node)); // this is necessary i guess
-        
+    constructor(node_array, scroll_container, offset) {
+        this.node_array = Array.from(node_array) // convert HTML collections to array
         this.size = node_array.length;
         this.offset = offset;
         this.scrollStatus = true;
 
         const nodeRect = node_array[0].getBoundingClientRect();
         this.node_width = nodeRect.width;        
+
+        this.scroll_container = scroll_container;
+        this.scroll_container.style.width = `${this.node_width * (this.size - 1)}px`;
     }
 
     initializeScrollView() {
