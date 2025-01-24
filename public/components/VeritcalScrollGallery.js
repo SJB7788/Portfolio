@@ -6,8 +6,14 @@ class VerticalScrollGallery {
 
     const firstNodeRect = nodeArray[0].getBoundingClientRect();
 
-    this.staticPos = firstNodeRect.top + document.documentElement.scrollTop;
+    this.staticPos = document.documentElement.scrollTop + firstNodeRect.top;
     this.nodeSize = firstNodeRect.height;
+  }
+
+  fullscreenNode() {
+    // 1. Get original card "projfs" attribute and getElementById using that attirbute (which will be the fs card)
+    
+    // 2. Show fs card
   }
 
   moveNodes(scrollValue) {

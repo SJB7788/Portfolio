@@ -124,28 +124,34 @@ const projectMarginContainer = document.getElementById(
 );
 const scrollContainer = document.getElementById("project__scroll");
 const projectContainer = document.getElementById("project__container");
+const projectNodeArray = document.querySelectorAll(".project__card");
 
 // Vertical Scroll Configuration
-const scrollContainerRect = scrollContainer.getBoundingClientRect();
-const scrollContainerHeight = scrollContainerRect.height;
+const nodeOffsetValue = 10; // Vertical offset of each node
+
+const projectNodeRect = projectNodeArray[0].getBoundingClientRect(); // Rect of one project card
+const projectNodeHeight = projectNodeRect.height; // Extract height of a project node
+
+const marginValue = (projectNodeHeight + nodeOffsetValue) * projectNodeArray.length; // Calculate the margin needed for scroll
 
 projectMarginContainer.style.setProperty(
   "--project-stack-height",
-  `${scrollContainerHeight}px`
-); // set project margin container property
+  `${marginValue}px`
+); // Set project margin container property
 
-const projectNodeArray = document.querySelectorAll(".project__card");
 const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
   projectNodeArray,
-  10
+  nodeOffsetValue
 );
+
+// Project Card Details
 
 // Scroll Event Logic
 const projectRect = projectContainer.getBoundingClientRect();
 const projectYPos = projectRect.top + window.scrollY;
 
 document.addEventListener("scroll", () => {
-  if (window.scrollY >= projectYPos) {
+  if (window.scrollY >= projectYPos) { 
     const nodeScrollValue = document.documentElement.scrollTop - projectYPos;
     projectScrollGallery.moveNodes(nodeScrollValue);
   } else {
