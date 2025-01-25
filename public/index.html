@@ -648,11 +648,7 @@
         <div id="project__div">
           <h1>Projects</h1>
           <div id="project__scroll">
-            <div
-              class="project__card"
-              id="snowscraper__card"
-              projfs="project_snowscraper_fs"
-            >
+            <div class="project__card" id="snowscraper__card">
               <p>01</p>
               <h3>SnowScraper 1</h3>
               <img
@@ -663,7 +659,12 @@
                 Description of SnowScraper Idiom Lorem Epsom Eudps Ieulo Areos
                 Jarekt Finosh Youru Calopment Sarrow Horesas
               </p>
-              <button>Details</button>
+              <button
+                class="project_details_btn"
+                projfs="project_snowscraper_fs"
+              >
+                Details
+              </button>
             </div>
             <div class="project__card" id="snowscraper__card2">
               <p>01</p>
@@ -704,6 +705,17 @@
           </div>
         </div>
         <div class="project_fs_container" id="project_snowscraper_fs">
+          <svg
+            class="fs_card_close_icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              fill="#e8eaed"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
           <div class="fs_card_screenshot">
             <img
               src="./assets/img/snowscraper-7b189.web.app_.png"

@@ -145,6 +145,26 @@ const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
 );
 
 // Project Card Details
+const allFsCards = document.querySelectorAll(".project_fs_container");
+const btn = document.querySelector(".project_details_btn");
+btn.addEventListener("click", () => {
+  const btnFsAttribute = btn.getAttribute("projfs");
+  console.log(btnFsAttribute);
+  
+  const fsDetailsContainer = document.getElementById(`${btnFsAttribute}`);
+  console.log(fsDetailsContainer);
+  
+  fsDetailsContainer.style.visibility = "visible";
+  fsDetailsContainer.style.opacity = "1";
+});
+
+const closeBtn = document.querySelectorAll(".fs_card_close_icon");
+closeBtn.forEach(btn => btn.addEventListener("click", () => {
+  allFsCards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.visibility = "hidden";
+  });
+}));
 
 // Scroll Event Logic
 const projectRect = projectContainer.getBoundingClientRect();
