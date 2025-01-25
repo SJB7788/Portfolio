@@ -211,7 +211,7 @@ section {
 }
 
 .skill-icon-path {
-  transition: fill 200ms ease-in;
+  transition: fill 250ms ease-in;
 }
 
 .language-name, .skill-name {
@@ -338,44 +338,83 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 50px 75px;
-  background-color: #b6cae0;
-  border-radius: 20px;
   display: flex;
-  flex-direction: row;
-}
-
-.fs_card_title {
-  width: 40%;
-}
-
-.fs_card_title > h1 {
-  margin: 20px 0;
-  font-family: "Bitter", serif;
-  font-size: 4em;
-  font-weight: 400;
-}
-
-.fs_card_title > img {
-  width: 73%;
+  align-items: center;
+  padding: 50px 75px;
+  background-color: #B6CAE0;
   border-radius: 20px;
+  overflow: hidden;
 }
 
-.fs_card_title > h3 {
-  margin: 0;
-  font-family: "Bitter", serif;
-  font-size: 2em;
-  font-weight: 300;
+.fs_card_screenshot {
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+  height: 100%;
+  width: 30%;
 }
 
-.fs_card_title > ul {
-  list-style-type: none;
-  font-family: "Bitter", serif;
-  font-size: 0.9em;
+.fs_card_screenshot > img {
+  width: 450px;
+  rotate: -2deg;
+  border-radius: 20px;
+  box-shadow: #00000025 0px 10px 10px;
 }
 
 .fs_card_details {
-  width: 60%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px 60px 9%;
+  background-color: #fff;
+  border-radius: 20px;
+  max-height: 75%;
+  width: 70%;
+  left: 20%;
+  box-shadow: #00000025 0px 10px 10px;
+}
+
+.fs_details_title {
+  margin-bottom: 30px;
+}
+
+.fs_details_title > h1 {
+  margin: 0;
+  color: #1D3D6F;
+  font-family: "Bitter", serif;
+  font-weight: 600;
+  font-size: 3.5em;
+}
+
+.fs_details_title > p {
+  position: relative;
+  margin: 0;
+  color: #1D3D6F;
+  font-family: "Roboto Flex", serif;
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.fs_details_title > p::after {
+  content: "";
+  width: 100px;
+  height: 3px;
+  background-color: #1D3D6F;
+  position: absolute;
+  left: 2px;
+  top: 35px;
+}
+
+.fs_details_detail {
+  height: 100%;
+  overflow: auto;
+}
+
+.fs_details_detail > p {
+  color: #000;
+  font-family: "Roboto Flex", serif;
+  font-weight: 300;
+  font-size: 0.9em;
 }
 
 #project_scroll__container {
