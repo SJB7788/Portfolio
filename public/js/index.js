@@ -6,6 +6,22 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
+// ** Navbar Section **
+const navbarContainer = document.getElementById("navbar__ul");
+const navHomeItem = document.getElementById("nav_home");
+const navSkillItem = document.getElementById("nav_skill");
+const navProjItem = document.getElementById("nav_proj");
+const navContactItem = document.getElementById("nav_contact");
+
+navbarContainer.classList.add("show_nav_bg");
+function showNavbarBackground() {
+  navbarContainer.classList.add("show_nav_bg");
+}
+
+function hideNavbarBackground() {
+  navbarContainer.classList.remove("show_nav_bg");
+}
+
 // ** Title Section **
 
 const titleSectionContainer = document.getElementById("title__container");
@@ -170,7 +186,13 @@ closeBtn.forEach(btn => btn.addEventListener("click", () => {
 const projectRect = projectContainer.getBoundingClientRect();
 const projectYPos = projectRect.top + window.scrollY;
 
+// add logic for scroll
 document.addEventListener("scroll", () => {
+  if (window.scrollY > 0) {
+    showNavbarBackground();
+  } else {
+    hideNavbarBackground();
+  }
   if (window.scrollY >= projectYPos) { 
     const nodeScrollValue = document.documentElement.scrollTop - projectYPos;
     projectScrollGallery.moveNodes(nodeScrollValue);

@@ -1,6 +1,8 @@
 :root {
   --main-bg-color: #ffffff;
   --circle-bg-color: #70d4d4;
+  --title-font: "Bitter", serif;
+  --subtext-font: "Roboto Flex", serif;
 }
 
 * {
@@ -36,10 +38,14 @@ section {
   display: flex;
   flex-direction: row;
   gap: 50px;
-  background-color: #f1f1f2b4;
-  backdrop-filter: blur(20px) saturate(1.7);
   border-radius: 50px;
   list-style-type: none;
+  transition: background-color 350ms ease-in, backdrop-filter 350ms ease-in;
+}
+
+.show_nav_bg {
+  background-color: #f1f1f2b4;
+  backdrop-filter: blur(20px) saturate(1.7);
 }
 
 #navbar__container > ul > li {
@@ -54,7 +60,7 @@ section {
 
 #navbar__container > ul > li > a {
   color: #1D3D6F;
-  font-family: "Roboto Flex", serif;
+  font-family: var(--subtext-font);
   font-size: 1.1em;
   text-decoration: none;
 }
@@ -87,7 +93,7 @@ section {
 #title__text--container > h1 {
   margin: 0;
   color: #1d3d6f;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-weight: 300;
   font-size: 5.2em;
   font-style: normal;
@@ -99,7 +105,7 @@ section {
 }
 
 #title__text--container > p {
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-size: 1.5em;
   font-weight: 300;
 }
@@ -128,7 +134,7 @@ section {
 
 #skills__div > h1 {
   margin: 100px;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-weight: 600;
   font-size: 6rem;
   font-style: normal;
@@ -159,19 +165,19 @@ section {
 
 .skills__card > h3 {
   margin: 0;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-weight: 500;
   font-size: 3rem;
 }
 
 .skills__card > p {
   margin: 10px 0 0 0;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-weight: 300;
 }
 
 .card_focus {
-  background-color: #9799A6;
+  background-color: #1D3D6F;
 }
 
 .card_focus > h3,
@@ -232,7 +238,7 @@ section {
 
 .language-name, .skill-name {
   color: white;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-size: 1em;
   transition: opacity 100ms ease-in;
 }
@@ -277,7 +283,7 @@ section {
 
 #project__div > h1 {
   margin: 0;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-weight: 600;
   font-size: 6rem;
   font-style: normal;
@@ -292,9 +298,9 @@ section {
 }
 
 .project__card {
-  height: 525px;
-  width: 600px;
-  padding: 65px 0;
+  height: 750px;
+  width: 700px;
+  padding: 40px 0;
   border-radius: 20px;
   box-sizing: border-box;
   display: flex;
@@ -306,23 +312,48 @@ section {
 
 .project__card > p,
 .project__card > h3 {
-  font-size: 1rem;
-  font-family: "Bitter", serif;
   margin: 0;
 }
 
 .project__card > h3 {
-  font-size: 2.3rem;
+  font-size: 3.3rem;
+  font-family: var(--title-font);
 }
 
-.project__card > img {
-  width: 50%;
+.project__card > p {
+  font-size: 1.1em;
+  font-family: var(--subtext-font);
+  font-weight: 400;
+}
+
+.project__card > a {
+  text-align: center;
+}
+
+.project__card > a > img {
+  border: #ffffff9f 2px solid;
+  width: 60%;
   margin: 10px 0;
   border-radius: 20px;
 }
 
 .project__card > button {
-  
+  margin-top: 10px;
+  padding: 10px 35px;
+  border: #ffffffd8 2px solid;
+  background-color: #ffffff00;
+  border-radius: 10px;
+  color: #fff;
+  font-family: var(--subtext-font);
+  font-weight: 300;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 200ms ease-in, color 200ms ease-in;
+}
+
+.project__card > button:hover {
+  background-color: #ffffff59 ;
+  font-weight: 300;
 }
 
 #project__card--description {
@@ -335,21 +366,63 @@ section {
   color: #ffffff;
 }
 
-#snowscraper__card2 {
-  background-color: #00ff37;
+#snowscraper__card > p,
+#snowscraper__card > h3 {
+  color: #fff;
 }
 
-#snowscraper__card3 {
-  background-color: #0044ff;
+#snowscraper__card > button:hover {
+  color: #0000009a;
 }
 
-#snowscraper__card4 {
-  background-color: #e5ff00;
+#artificialgains__card {
+  background-color: #9799A6;
+}
+
+#artificialgains__card > p,
+#artificialgains__card > h3 {
+  color: #fff;
+}
+
+#artificialgains__card > button:hover {
+  color: #ffffff;
+}
+
+#aethersjournal__card {
+  background-color: #fffef9;
+}
+
+#aethersjournal__card > p,
+#aethersjournal__card > h3 {
+  color: #000;
+}
+
+#aethersjournal__card > button {
+  border: #00000062 2px solid;
+  color: #000;
+}
+
+#aethersjournal__card > button:hover {
+  background-color: #000000a1;
+  color: #ffffff;
+}
+
+#bcitraconnect__card {
+  background-color: #1d3d6f;
+}
+
+#bcitraconnect__card > p,
+#bcitraconnect__card > h3 {
+  color: #ffffff;
+}
+
+#bcitraconnect__card > button:hover {
+  color: #ffffff;
 }
 
 .project_fs_container {
-  /* visibility: hidden;
-  opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -408,7 +481,7 @@ section {
 .fs_details_title > h1 {
   margin: 0;
   color: #1D3D6F;
-  font-family: "Bitter", serif;
+  font-family: var(--title-font);
   font-weight: 600;
   font-size: 3.5em;
 }
@@ -417,7 +490,7 @@ section {
   position: relative;
   margin: 0;
   color: #1D3D6F;
-  font-family: "Roboto Flex", serif;
+  font-family: var(--subtext-font);
   font-weight: 400;
   font-size: 1.3em;
 }
@@ -439,7 +512,7 @@ section {
 
 .fs_details_detail > p {
   color: #000;
-  font-family: "Roboto Flex", serif;
+  font-family: var(--subtext-font);
   font-weight: 300;
   font-size: 0.9em;
 }

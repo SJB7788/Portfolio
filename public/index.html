@@ -22,11 +22,11 @@
   <body>
     <main id="main">
       <section id="navbar__container">
-        <ul>
-          <li class="nav_focus"><a href="">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Skills</a></li>
-          <li><a href="">Projects</a></li>
+        <ul id="navbar__ul">
+          <li id="nav_home" class="nav_focus nav_item"><a href="">Home</a></li>
+          <li id="nav_skill" class="nav_item"><a href="">Skills</a></li>
+          <li id="nav_proj" class="nav_item"><a href="">Projects</a></li>
+          <li id="nav_contact" class="nav_item"><a href="">Contacts</a></li>
         </ul>
       </section>
 
@@ -472,7 +472,7 @@
                   </ul>
                 </div>
               </div>
-              <div id="skill_card_language" class="skills__card card_focus">
+              <div id="skill_card_language" class="skills__card card_non_focus">
                 <h3>Languages</h3>
                 <p>Experience in Variety of Languages</p>
                 <div id="language_list_container" class="skill_list_container">
@@ -650,14 +650,17 @@
           <div id="project__scroll">
             <div class="project__card" id="snowscraper__card">
               <p>01</p>
-              <h3>SnowScraper 1</h3>
-              <img
-                src="./assets/img/mountain and peak landscape.png"
-                alt="snowscraper placeholder"
-              />
+              <h3>SnowScraper</h3>
+              <a href="https://snowscraper-7b189.web.app/">
+                <img
+                  src="./assets/img/Snowscraper Title Image.png"
+                  alt="snowscraper title image"
+                />
+              </a>
               <p id="project__card--description">
-                Description of SnowScraper Idiom Lorem Epsom Eudps Ieulo Areos
-                Jarekt Finosh Youru Calopment Sarrow Horesas
+                Snowscraper is a web application that scrapes the web of snow
+                related products and compiles them for consumers to select and
+                buy
               </p>
               <button
                 class="project_details_btn"
@@ -666,56 +669,80 @@
                 Details
               </button>
             </div>
-            <div class="project__card" id="snowscraper__card2">
-              <p>01</p>
-              <h3>SnowScraper 2</h3>
-              <img
-                src="./assets/img/mountain and peak landscape.png"
-                alt="snowscraper placeholder"
-              />
+            <div class="project__card" id="artificialgains__card">
+              <p>02</p>
+              <h3>ArtificialGains</h3>
+              <a href="">
+                <img
+                  src="./assets/img/Artificial Gains Title Image.png"
+                  alt="artificial gains title image"
+                />
+              </a>
               <p id="project__card--description">
-                Description of SnowScraper Idiom Lorem Epsom Eudps Ieulo Areos
-                Jarekt Finosh Youru Calopment Sarrow Horesas
+                ArtificialGains is an AI fitness and diet web application that plans out users
+                fitness routine, diet plan and tracks user's progress.  
               </p>
+              <button
+                class="project_details_btn"
+                projfs="project_artificialgains_fs"
+              >
+                Details
+              </button>
             </div>
-            <div class="project__card" id="snowscraper__card3">
-              <p>01</p>
-              <h3>SnowScraper 3</h3>
-              <img
-                src="./assets/img/mountain and peak landscape.png"
-                alt="snowscraper placeholder"
-              />
+            <div class="project__card" id="aethersjournal__card">
+              <p>03</p>
+              <h3>Aether's Journal</h3>
+              <a href="">
+                <img
+                  src="./assets/img/Aethers Journal Title Image.png"
+                  alt="aethers journal title image"
+                />
+              </a>
               <p id="project__card--description">
-                Description of SnowScraper Idiom Lorem Epsom Eudps Ieulo Areos
-                Jarekt Finosh Youru Calopment Sarrow Horesas
+                A Journaling application with an AI therapist that can converse and review
+                each day  
               </p>
+              <button
+                class="project_details_btn"
+                projfs="project_aethersjournal_fs"
+              >
+                Details
+              </button>
             </div>
-            <div class="project__card" id="snowscraper__card4">
-              <p>01</p>
-              <h3>SnowScraper 4</h3>
-              <img
-                src="./assets/img/mountain and peak landscape.png"
-                alt="snowscraper placeholder"
-              />
+            <div class="project__card" id="bcitraconnect__card">
+              <p>04</p>
+              <h3>BCITRA Connect</h3>
+              <a href="">
+                <img
+                  src="./assets/img/BCITRA Connect Title Image.png"
+                  alt="bcitra connect title image"
+                />
+              </a>
               <p id="project__card--description">
-                Description of SnowScraper Idiom Lorem Epsom Eudps Ieulo Areos
-                Jarekt Finosh Youru Calopment Sarrow Horesas
+                A web application converted from a desktop application that helps BCIT Retirees Association 
+                track members and member's fees
               </p>
+              <button
+                class="project_details_btn"
+                projfs="project_bcitraconnect_fs"
+              >
+                Details
+              </button>
             </div>
           </div>
         </div>
         <div class="project_fs_container" id="project_snowscraper_fs">
           <svg
             class="fs_card_close_icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              fill="#e8eaed"
-            >
-              <path
-                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-              />
-            </svg>
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            fill="#e8eaed"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
           <div class="fs_card_screenshot">
             <img
               src="./assets/img/snowscraper-7b189.web.app_.png"
@@ -728,22 +755,37 @@
               <p>Winter product aggregate</p>
             </div>
             <div class="fs_details_detail">
+              <!-- <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Selenium</li>
+                <li>Docker</li>
+              </ul> -->
               <p>
-                SnowScraper is a web application that aggregates certain winter products by web scraping various store's websites.
-                <br>
-                <br>
-                SnowScraper was a project done during my BCIT CST Diploma program through a class soley based on doing projects.
-                This project was done by myself and two other group mates, Jake and Joanne.
-                <br>
-                <br>
-                I was more involved with the overall design of the website and implementing front end features.
-                <br>
-                <br>
-                This project's tech stack was very simple. HTML, CSS, JavaScript, and Python to use Selenium, a popular web scraping library.
-                For hosting and storing data, we used Firebase and Firebase's Realtime Database.
-                <br>
-                <br>
-                This project was a great introduction to group work in programming and getting a taste in all 
+                SnowScraper is a web application that aggregates certain winter
+                products by web scraping various store's websites.
+                <br />
+                <br />
+                SnowScraper was a project done during my BCIT CST Diploma
+                program through a class soley based on doing projects. This
+                project was done by myself and two other group mates, Jake and
+                Joanne.
+                <br />
+                <br />
+                I was more involved with the overall design of the website and
+                implementing front end features.
+                <br />
+                <br />
+                This project's tech stack was very simple. HTML, CSS,
+                JavaScript, and Python to use Selenium, a popular web scraping
+                library. For hosting and storing data, we used Firebase and
+                Firebase's Realtime Database.
+                <br />
+                <br />
+                This project was a great introduction to group work in
+                programming and getting a taste in all
               </p>
             </div>
           </div>
