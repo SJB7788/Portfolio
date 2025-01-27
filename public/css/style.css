@@ -40,7 +40,7 @@ section {
   gap: 50px;
   border-radius: 50px;
   list-style-type: none;
-  transition: background-color 350ms ease-in, backdrop-filter 350ms ease-in;
+  transition: background-color 300ms ease-in, backdrop-filter 300ms ease-in;
 }
 
 .show_nav_bg {
@@ -51,18 +51,15 @@ section {
 #navbar__container > ul > li {
   padding: 10px 20px;
   border-radius: 50px;
+  color: #1D3D6F;
+  font-family: var(--subtext-font);
+  font-size: 1.1em;
+  cursor: pointer;
   transition: background-color 200ms ease-in;
 }
 
 #navbar__container > ul > li.nav_focus {
   background-color: #ffffff;
-}
-
-#navbar__container > ul > li > a {
-  color: #1D3D6F;
-  font-family: var(--subtext-font);
-  font-size: 1.1em;
-  text-decoration: none;
 }
 
 #title__container,
