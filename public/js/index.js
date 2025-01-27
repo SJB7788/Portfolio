@@ -133,23 +133,6 @@ function hideNavbarBackground() {
 
 hideNavbarBackground();
 
-// Navbar item click event
-navHomeItem.addEventListener("click", () =>
-  window.scrollTo({top: 0, left: 0, behavior: "smooth"})
-);
-
-navSkillItem.addEventListener("click", () =>
-  skillSection.scrollIntoView({ behavior: "smooth" })
-);
-
-navProjItem.addEventListener("click", () =>
-  projectContainer.scrollIntoView({ behavior: "smooth" })
-);
-
-navContactItem.addEventListener("click", () =>
-  titleSectionContainer.scrollIntoView({ behavior: "smooth" })
-);
-
 // Scroll Event Logic
 const projSectionRect = projectContainer.getBoundingClientRect();
 const projectYPos = projSectionRect.top + window.scrollY;
