@@ -99,7 +99,7 @@ section {
   color: #1d3d6f;
   font-family: var(--title-font);
   font-weight: 300;
-  font-size: 5.2em;
+  font-size: 6em;
   font-style: normal;
   text-align: center;
 }
@@ -426,57 +426,45 @@ section {
 }
 
 .project_fs_container {
-  visibility: hidden;
-  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 50px 75px;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 50px 75px;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
   background-color: #B6CAE0;
   border-radius: 20px;
-  overflow: hidden;
   transition: opacity 200ms ease-in;
 }
 
 .fs_card_close_icon {
-  cursor: pointer;
-  z-index: 2;
   position: absolute;
+  z-index: 2;
   top: 25px;
   right: 25px;
   height: 50px;
+  cursor: pointer;
 }
 
-.fs_card_screenshot {
-  position: absolute;
-  top: 50px;
-  z-index: 1;
-  height: 100%;
-  width: 30%;
-}
-
-.fs_card_screenshot > img {
-  width: 450px;
-  rotate: -2deg;
-  border-radius: 20px;
-  box-shadow: #00000025 0px 10px 10px;
-}
-
-.fs_card_details {
+.fs_inner_container {
   position: relative;
   display: flex;
-  flex-direction: column;
-  padding: 60px 60px 60px 9%;
-  background-color: #fff;
-  border-radius: 20px;
-  max-height: 75%;
-  width: 70%;
-  left: 20%;
-  box-shadow: #00000025 0px 10px 10px;
+  align-items: center;
+  width: 75vw;
+  height: 100%;
+}
+
+.fs_header_container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .fs_details_title {
@@ -501,13 +489,62 @@ section {
 }
 
 .fs_details_title > p::after {
+  position: absolute;
   content: "";
+  left: 2px;
+  top: 35px;
   width: 100px;
   height: 3px;
   background-color: #1D3D6F;
+}
+
+.fs_details_links > ul {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.fs_details_links > ul > li {
+  width: 40px;
+}
+
+.fs_header_icons {
+  fill: #e8eaed;
+  transition: fill 100ms ease-in;
+}
+
+.fs_header_icons:hover  {
+  fill: #000;
+}
+
+.fs_card_screenshot {
   position: absolute;
-  left: 2px;
-  top: 35px;
+  z-index: 1;
+  top: 50px;
+  left: -5px;
+  height: 100%;
+  width: 30%;
+}
+
+.fs_card_screenshot > img {
+  width: 450px;
+  rotate: -2deg;
+  border-radius: 20px;
+  box-shadow: #00000025 0px 10px 10px;
+}
+
+.fs_card_details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px 60px 500px;
+  background-color: #fff;
+  border-radius: 20px;
+  max-height: 75%;
+  width: fit-content;
+  box-shadow: #00000025 0px 10px 10px;
 }
 
 .fs_details_detail {
