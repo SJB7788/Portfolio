@@ -9,17 +9,9 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 25px;
   background-color: var(--main-bg-color);
-}
-
-main {
-  margin-bottom: 50px;
 }
 
 section {
@@ -55,18 +47,15 @@ section {
 #navbar__container > ul > li {
   padding: 10px 20px;
   border-radius: 50px;
+  color: #1D3D6F;
+  font-family: var(--subtext-font);
+  font-size: 1.1em;
+  cursor: pointer;
   transition: background-color 200ms ease-in;
 }
 
 #navbar__container > ul > li.nav_focus {
   background-color: #ffffff;
-}
-
-#navbar__container > ul > li > a {
-  text-decoration: none;
-  color: #1D3D6F;
-  font-family: var(--subtext-font);
-  font-size: 1.1em;
 }
 
 #title__container,
@@ -437,9 +426,24 @@ section {
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
-  background-color: #B6CAE0;
   border-radius: 20px;
   transition: opacity 200ms ease-in;
+}
+
+#project_snowscraper_fs {
+  background-color: #B6CAE0;
+}
+
+#project_artificialgains_fs {
+  background-color: #9799A6;
+}
+
+#project_aethersjournal_fs {
+  background-color: #FFFEF9;
+}
+
+#project_bcitraconnect_fs {
+  background-color: #1D3D6F;
 }
 
 .fs_card_close_icon {
@@ -511,19 +515,20 @@ section {
 }
 
 .fs_header_icons {
-  fill: #e8eaed;
+  fill: #c0c2c5;
   transition: fill 100ms ease-in;
 }
 
 .fs_header_icons:hover  {
-  fill: #000;
+  fill: #1D3D6F;
+  width: 40px;
 }
 
 .fs_card_screenshot {
   position: absolute;
   z-index: 1;
   top: 50px;
-  left: -5px;
+  left: -10px;
   height: 100%;
   width: 30%;
 }
@@ -539,7 +544,7 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 60px 60px 60px 500px;
+  padding: 60px 60px 60px 490px;
   background-color: #fff;
   border-radius: 20px;
   max-height: 75%;
@@ -552,6 +557,17 @@ section {
   overflow: auto;
 }
 
+.fs_details_tech > ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.fs_details_tech > ul > li {
+  width: 50px;
+}
+
 .fs_details_detail > p {
   color: #000;
   font-family: var(--subtext-font);
@@ -559,7 +575,32 @@ section {
   font-size: 0.9em;
 }
 
+.fs_details_detail > p > span {
+  font-weight: bold;
+}
+
 #project_scroll__container {
   min-height: 100px;
   margin-top: var(--project-stack-height);
+}
+
+#footer_contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.contact_header > h1 {
+  text-align: center;
+  font-family: var(--title-font);
+  font-size: 4em;
+  font-weight: 500;
+  color: #1D3D6F;;
+}
+
+.contact_items > ul {
+  padding: 0;
+  list-style-type: none;
 }

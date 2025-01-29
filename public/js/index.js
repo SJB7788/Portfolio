@@ -87,8 +87,9 @@ const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
 
 // Project Card Details
 const allFsCards = document.querySelectorAll(".project_fs_container");
-const btn = document.querySelector(".project_details_btn");
-btn.addEventListener("click", () => {
+const projFsBtns = document.querySelectorAll(".project_details_btn");
+
+projFsBtns.forEach(btn => btn.addEventListener("click", () => {
   const btnFsAttribute = btn.getAttribute("projfs");
   console.log(btnFsAttribute);
 
@@ -97,7 +98,7 @@ btn.addEventListener("click", () => {
 
   fsDetailsContainer.style.visibility = "visible";
   fsDetailsContainer.style.opacity = "1";
-});
+}));
 
 const closeBtn = document.querySelectorAll(".fs_card_close_icon");
 closeBtn.forEach((btn) =>
@@ -132,6 +133,23 @@ function hideNavbarBackground() {
 }
 
 hideNavbarBackground();
+
+// Navbar item click event
+navHomeItem.addEventListener("click", () =>
+  window.scrollTo({top: 0, left: 0, behavior: "smooth"})
+);
+
+navSkillItem.addEventListener("click", () =>
+  skillSection.scrollIntoView({ behavior: "smooth" })
+);
+
+navProjItem.addEventListener("click", () =>
+  projectContainer.scrollIntoView({ behavior: "smooth" })
+);
+
+navContactItem.addEventListener("click", () =>
+  titleSectionContainer.scrollIntoView({ behavior: "smooth" })
+);
 
 // Scroll Event Logic
 const projSectionRect = projectContainer.getBoundingClientRect();
