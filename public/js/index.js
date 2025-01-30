@@ -21,10 +21,10 @@ bubble.startBubbles();
 const leftArrowIcon = document.getElementById("left-arrow");
 const rightArrowIcon = document.getElementById("right-arrow");
 
-const skillCardContainer = document.getElementById("skills__scroll");
-const skillCards = document.querySelectorAll(".skills__card");
+const skillScrollContainer = document.getElementById("skills_card__container");
+const skillScroll = document.querySelector(".skills__scroll");
 
-const scrollView = new ScrollView.ScrollView(skillCards, skillCardContainer, 5);
+const scrollView = new ScrollView.ScrollView(skillScroll, skillScrollContainer, 5);
 scrollView.initializeScrollView();
 
 leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
@@ -72,8 +72,7 @@ const nodeOffsetValue = 10; // Vertical offset of each node
 const projectNodeRect = projectNodeArray[0].getBoundingClientRect(); // Rect of one project card
 const projectNodeHeight = projectNodeRect.height; // Extract height of a project node
 
-const marginValue =
-  (projectNodeHeight + nodeOffsetValue) * projectNodeArray.length; // Calculate the margin needed for scroll
+const marginValue = projectNodeHeight * (projectNodeArray.length - 1); // Calculate the margin needed for scroll
 
 projectMarginContainer.style.setProperty(
   "--project-stack-height",
@@ -89,16 +88,18 @@ const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
 const allFsCards = document.querySelectorAll(".project_fs_container");
 const projFsBtns = document.querySelectorAll(".project_details_btn");
 
-projFsBtns.forEach(btn => btn.addEventListener("click", () => {
-  const btnFsAttribute = btn.getAttribute("projfs");
-  console.log(btnFsAttribute);
+projFsBtns.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const btnFsAttribute = btn.getAttribute("projfs");
+    console.log(btnFsAttribute);
 
-  const fsDetailsContainer = document.getElementById(`${btnFsAttribute}`);
-  console.log(fsDetailsContainer);
+    const fsDetailsContainer = document.getElementById(`${btnFsAttribute}`);
+    console.log(fsDetailsContainer);
 
-  fsDetailsContainer.style.visibility = "visible";
-  fsDetailsContainer.style.opacity = "1";
-}));
+    fsDetailsContainer.style.visibility = "visible";
+    fsDetailsContainer.style.opacity = "1";
+  })
+);
 
 const closeBtn = document.querySelectorAll(".fs_card_close_icon");
 closeBtn.forEach((btn) =>
@@ -136,7 +137,7 @@ hideNavbarBackground();
 
 // Navbar item click event
 navHomeItem.addEventListener("click", () =>
-  window.scrollTo({top: 0, left: 0, behavior: "smooth"})
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
 );
 
 navSkillItem.addEventListener("click", () =>
