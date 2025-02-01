@@ -24,8 +24,11 @@ const rightArrowIcon = document.getElementById("right-arrow");
 const skillScrollContainer = document.getElementById("skills_card__container");
 const skillScroll = document.querySelector(".skills__scroll");
 
-const scrollView = new ScrollView.ScrollView(skillScroll, skillScrollContainer, 5);
-scrollView.initializeScrollView();
+const scrollView = new ScrollView.ScrollView(
+  skillScroll,
+  skillScrollContainer,
+  10
+);
 
 leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
 rightArrowIcon.addEventListener("click", () => scrollView.moveNodeToRight());
@@ -124,6 +127,9 @@ const allNavItems = document.querySelectorAll(".nav_item");
 const skillSection = document.getElementById("skills__container");
 const skillSectionRect = skillSection.getBoundingClientRect();
 
+const footer = document.getElementById("footer_contact");
+const footerRect = footer.getBoundingClientRect();
+
 navbarContainer.classList.add("show_nav_bg");
 function showNavbarBackground() {
   navbarContainer.classList.add("show_nav_bg");
@@ -149,7 +155,7 @@ navProjItem.addEventListener("click", () =>
 );
 
 navContactItem.addEventListener("click", () =>
-  titleSectionContainer.scrollIntoView({ behavior: "smooth" })
+  footer.scrollIntoView({ behavior: "smooth" })
 );
 
 // Scroll Event Logic
@@ -163,11 +169,15 @@ document.addEventListener("scroll", () => {
   const windowScrollY = window.scrollY;
 
   // navbar item highlight logic
-  if (windowScrollY >= projSectionRect.top) {
+  if (windowScrollY >= footerRect.top - projSectionRect.height / 2){
+    allNavItems.forEach((item) => item.classList.remove("nav_focus"));
+    navContactItem.classList.add("nav_focus");
+  }
+  else if (windowScrollY >= projSectionRect.top - projSectionRect.height / 2) {
     // project is at the very bottom
     allNavItems.forEach((item) => item.classList.remove("nav_focus"));
     navProjItem.classList.add("nav_focus");
-  } else if (windowScrollY >= skillSectionRect.top) {
+  } else if (windowScrollY >= skillSectionRect.top - skillSectionRect.height / 2) {
     allNavItems.forEach((item) => item.classList.remove("nav_focus"));
     navSkillItem.classList.add("nav_focus");
   } else {

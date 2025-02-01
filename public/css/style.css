@@ -138,6 +138,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .skills__scroll {
@@ -151,6 +152,7 @@ section {
   gap: 10px;
   z-index: 1;
   height: 400px;
+  transition: transform 500ms ease-in;
 }
 
 .skills__card {
@@ -161,7 +163,8 @@ section {
   width: 80vw;
   padding: 50px 50px;
   border-radius: 20px;
-  transition: transform 500ms ease-in, background-color 500ms ease-in, color 500ms ease-in;
+  overflow: hidden;
+  transition: background-color 500ms ease-in, color 500ms ease-in;
 }
 
 .skills__card > h3 {
@@ -245,6 +248,7 @@ section {
 }
 
 #right-arrow, #left-arrow {
+  z-index: 5;
   transition: opacity 100ms ease-in;
   cursor: pointer;
   opacity: 0.5;
@@ -255,7 +259,7 @@ section {
 }
 
 #skills__arrow__container {
-  z-index: 0;
+  z-index: 1;
   position: absolute;
   width: 100vw;
   padding: 0 75px;
