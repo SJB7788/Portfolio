@@ -34,6 +34,8 @@ section {
   width: 100%; */
   top: 20px;
   left: 0;
+
+  transition: opacity 200ms ease-in;
 }
 
 #navbar__ul {
@@ -57,7 +59,7 @@ section {
 #navbar__ul > li {
   padding: 10px 20px;
   border-radius: 50px;
-  color: #1D3D6F;
+  color: #1d3d6f;
   font-family: var(--subtext-font);
   font-size: 1.1em;
   cursor: pointer;
@@ -75,10 +77,11 @@ section {
   margin-top: 10px;
   margin-bottom: 25px;
   border-radius: 20px;
-  background-color: #F4F9FC;
+  background-color: #f4f9fc;
 }
 
 #title__container {
+  margin-top: 0;
   position: relative;
   overflow: hidden;
 }
@@ -122,7 +125,6 @@ section {
   transition: left 10000ms ease-in, top 10000ms ease-in;
 }
 
-
 #skills__container {
   position: relative;
   overflow: hidden;
@@ -154,14 +156,16 @@ section {
   color: #1d3d6f;
 }
 
-#right-arrow, #left-arrow {
+#right-arrow,
+#left-arrow {
   z-index: 5;
   transition: opacity 100ms ease-in;
   cursor: pointer;
   opacity: 0.5;
 }
 
-#right-arrow:hover, #left-arrow:hover {
+#right-arrow:hover,
+#left-arrow:hover {
   opacity: 1;
 }
 
@@ -208,7 +212,7 @@ section {
 }
 
 .skill_card_header {
- padding: 50px 50px 0 50px;
+  padding: 50px 50px 0 50px;
 }
 
 .skill_card_header > h3 {
@@ -225,7 +229,7 @@ section {
 }
 
 .card_focus {
-  background-color: #1D3D6F;
+  background-color: #1d3d6f;
 }
 
 .card_focus > .skill_card_header > h3,
@@ -234,7 +238,7 @@ section {
 }
 
 .card_non_focus {
-  background-color: #E9E8EE;
+  background-color: #e9e8ee;
 }
 
 .card_non_focus > .skill_card_header > h3,
@@ -247,7 +251,7 @@ section {
 }
 
 .skill_list_container {
-  z-index: 1;  
+  z-index: 1;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -258,7 +262,7 @@ section {
   padding-bottom: 50px;
 }
 
-.skill_list_container > ul { 
+.skill_list_container > ul {
   z-index: 1;
   padding: 0;
   width: 90%;
@@ -268,7 +272,8 @@ section {
   list-style-type: none;
 }
 
-.skill-list-element, .language-list-element {
+.skill-list-element,
+.language-list-element {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -384,7 +389,7 @@ section {
 }
 
 .project__card > button:hover {
-  background-color: #ffffff59 ;
+  background-color: #ffffff59;
   font-weight: 300;
 }
 
@@ -408,7 +413,7 @@ section {
 }
 
 #artificialgains__card {
-  background-color: #9799A6;
+  background-color: #9799a6;
 }
 
 #artificialgains__card > p,
@@ -469,19 +474,19 @@ section {
 }
 
 #project_snowscraper_fs {
-  background-color: #B6CAE0;
+  background-color: #b6cae0;
 }
 
 #project_artificialgains_fs {
-  background-color: #9799A6;
+  background-color: #9799a6;
 }
 
 #project_aethersjournal_fs {
-  background-color: #FFFEF9;
+  background-color: #fffef9;
 }
 
 #project_bcitraconnect_fs {
-  background-color: #1D3D6F;
+  background-color: #1d3d6f;
 }
 
 .fs_card_close_icon {
@@ -519,7 +524,7 @@ section {
 
 .fs_details_title > h1 {
   margin: 0;
-  color: #1D3D6F;
+  color: #1d3d6f;
   font-family: var(--title-font);
   font-weight: 600;
   font-size: 3.5em;
@@ -528,7 +533,7 @@ section {
 .fs_details_title > p {
   position: relative;
   margin: 0;
-  color: #1D3D6F;
+  color: #1d3d6f;
   font-family: var(--subtext-font);
   font-weight: 400;
   font-size: 1.3em;
@@ -541,7 +546,7 @@ section {
   top: 100px;
   width: 100px;
   height: 3px;
-  background-color: #1D3D6F;
+  background-color: #1d3d6f;
 }
 
 .fs_details_links > ul {
@@ -561,8 +566,8 @@ section {
   transition: fill 100ms ease-in;
 }
 
-.fs_header_icons:hover  {
-  fill: #1D3D6F;
+.fs_header_icons:hover {
+  fill: #1d3d6f;
 }
 
 .fs_card_screenshot {
@@ -640,7 +645,7 @@ section {
   font-family: var(--title-font);
   font-size: 4em;
   font-weight: 500;
-  color: #1D3D6F;;
+  color: #1d3d6f;
 }
 
 .contact_items > ul {
@@ -676,11 +681,7 @@ section {
   .fs_details_title > p {
     font-size: 1em;
   }
-
-  .fs_details_links > ul > li {
-  }
-
-  .fs_details_detail > p {
+  z .fs_details_detail > p {
     font-size: 0.8em;
   }
 
@@ -738,16 +739,53 @@ section {
   #title__text--container > p {
     font-size: 1.4em;
   }
+
+  .fs_details_title > h1 {
+    font-size: 2.2em;
+  }
+
+  .fs_details_title > p {
+    font-size: 0.8em;
+  }
+
+  .fs_details_title::after {
+    top: 70px;
+  }
+
+  .fs_details_links > ul > li {
+    width: 35px;
+  }
+
+  .fs_details_detail > p {
+    font-size: 0.7em;
+  }
 }
 
 @media screen and (max-width: 1100px) {
+  #title__text--container > h1 {
+    font-size: 5em;
+  }
+
+  #title__text--container > p {
+    font-size: 1.2em;
+  }
+
+  .section_h1 {
+    font-size: 4.5rem !important;
+  }
+
+  #left-arrow,
+  #right-arrow {
+    width: 45px;
+  }
+
   #project__div {
     flex-direction: column;
     padding: 0;
   }
 
   #project__div > h1 {
-    padding: 100px 100px 0 100px
+    padding: 100px 100px 0 100px;
   }
 
   .project__card {
@@ -778,6 +816,10 @@ section {
     margin-bottom: 0px;
   }
 
+  .project_fs_container {
+    padding: 30px 55px;
+  }
+
   .fs_header_container {
     width: auto;
   }
@@ -792,7 +834,7 @@ section {
   }
 
   .fs_inner_container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     padding-top: 50px;
@@ -803,13 +845,14 @@ section {
     position: relative;
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 1200px;
-    top: 0;
-    left: 0;
+    top: auto;
+    left: auto;
+    height: auto;
+    width: auto;
   }
 
   .fs_card_screenshot > img {
+    width: 300px;
     rotate: 0deg;
   }
 
@@ -839,7 +882,7 @@ section {
   }
 
   .skill_card_header > p {
-    font-size: 1em;  
+    font-size: 1em;
   }
 
   .skill-lang-icon {
@@ -849,21 +892,261 @@ section {
   .skill-name {
     margin-bottom: 10px;
   }
+
+  .fs_details_title > h1 {
+    font-size: 2.2em;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .fs_card_details {
+    padding: 35px;
+  }
+
+  .fs_details_title > h1 {
+    font-size: 1.7em;
+  }
+
+  .fs_details_title > p {
+    font-size: 0.6em;
+  }
+
+  .fs_details_title::after {
+    top: 50px;
+  }
+
+  .fs_details_links > ul > li {
+    width: 25px;
+  }
+
+  .fs_details_detail > p {
+    font-size: 0.6em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    margin: 10px;
+  }
+
+  #navbar__container {
+    top: 10px;
+  }
+
+  #navbar__ul {
+    gap: 25px;
+  }
+
+  #skills_header {
+    margin: 75px 75px 0 75px;
+  }
+
+  .skill_card_header {
+    padding: 45px 45px 0 45px;
+  }
+
+  .skill_card_header > h3 {
+    font-size: 2.4em;
+  }
+
+  .skill_card_header > p {
+    font-size: 0.9em;
+  }
+
+  .skill-icon {
+    width: 55px;
+  }
+
+  .skill-name {
+    font-size: 0.9em;
+  }
+
+  #project__div > h1 {
+    padding: 75px 75px 0 75px;
+  }
+
+  #title__text--container > h1 {
+    font-size: 4.2em;
+  }
+
+  #title__text--container > p {
+    font-size: 1em;
+  }
+
+  #left-arrow,
+  #right-arrow {
+    width: 40px;
+  }
+
+  .section_h1 {
+    font-size: 4rem !important;
+  }
+
+  .fs_inner_container {
+    flex-direction: column;
+  }
+
+  .fs_card_screenshot {
+    width: 100%;
+  }
+
+  .fs_card_screenshot > img {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .fs_card_details {
+    margin: 10px 0 50px 0;
+  }
+
+  .fs_card_close_icon {
+    top: 10px;
+    right: 10px;
+  }
 }
 
 @media screen and (max-width: 700px) {
+  #title__text--container > h1 {
+    font-size: 3.5em;
+  }
+
+  #title__text--container > p {
+    font-size: 0.9em;
+  }
+
   #language_list_container > ul {
     gap: 10px 10px;
   }
+
+  #skills_header {
+    margin: 65px 65px 0 65px;
+  }
+
+  #project__div > h1 {
+    padding: 65px 65px 10px 65px;
+  }
+
+  #left-arrow,
+  #right-arrow {
+    width: 35px;
+  }
+
+  .section_h1 {
+    font-size: 3.5em !important;
+  }
+
+  .project__card {
+    width: 400px;
+    height: 400px;
+  }
+
+  .project__card > p {
+    font-size: 0.8em;
+  }
+
+  .project__card > h3 {
+    font-size: 2em;
+  }
+
+  .project__card > a > img {
+    width: 60%;
+  }
+
+  .project__card > button {
+    border: #ffffffd8 1px solid;
+    padding: 10px 17px;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #navbar__ul {
+    gap: 25px;
+  }
+
+  #navbar__ul > li {
+    font-size: 1em;
+    padding: 10px 15px;
+  }
+
+  #title__text--container > h1 {
+    font-size: 3.1em;
+  }
+
+  #title__text--container > p {
+    font-size: 0.8em;
+  }
+
+  .section_h1 {
+    font-size: 3rem !important;
+  }
+
+  #left-arrow,
+  #right-arrow {
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    margin: 0px;
+  }
+
+  #title__text--container > h1 {
+    font-size: 2.7em;
+  }
+
+  #title__text--container > p {
+    font-size: 0.75em;
+  }
+
+  .section_h1 {
+    font-size: 2.3rem !important;
+  }
+
+  .skill_card_header {
+    padding: 45px 45px 0 45px;
+  }
+
+  .skill_card_header > h3 {
+    font-size: 2em;
+  }
+
+  .skill_card_header > p {
+    font-size: 0.8em;
+  }
+
   .skill-icon {
-    width: 70px;
+    width: 40px;
   }
 
   .skill-name {
     font-size: 0.8em;
   }
-}
 
+  .project__card {
+    width: 350px;
+    height: 350px;
+  }
+
+  .project__card > p {
+    font-size: 0.7em;
+  }
+
+  .project__card > h3 {
+    font-size: 1.8em;
+  }
+
+  .project__card > a > img {
+    width: 50%;
+  }
+
+  .project__card > button {
+    border: #ffffffd8 1px solid;
+    padding: 8px 15px;
+    font-size: 0.7em;
+  }
+}
 
 @media screen and (max-width: 400px) {
   body {
@@ -878,7 +1161,7 @@ section {
   #navbar__container {
     top: 10px;
   }
-  
+
   #navbar__ul {
     gap: 10px;
   }
@@ -888,7 +1171,7 @@ section {
     padding: 5px 15px;
   }
 
-  #title__text--container > h1{
+  #title__text--container > h1 {
     font-weight: 400;
     font-size: 2.3em;
   }
@@ -905,12 +1188,13 @@ section {
   #skills_header {
     margin: 40px 40px 0 40px;
   }
-  
+
   #skills_header > h1 {
     font-size: 2.5em;
   }
 
-  #left-arrow, #right-arrow {
+  #left-arrow,
+  #right-arrow {
     width: 20px;
   }
 
@@ -951,7 +1235,7 @@ section {
     padding: 40px 40px 0px 40px;
     font-size: 3em;
   }
-  
+
   .project__card {
     width: 90%;
     height: 400px;
@@ -968,7 +1252,7 @@ section {
   .project__card > a > img {
     width: 80%;
   }
-  
+
   .project__card > button {
     border: #ffffffd8 1px solid;
     padding: 8px 15px;

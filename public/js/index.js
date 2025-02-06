@@ -91,6 +91,8 @@ const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
 const allFsCards = document.querySelectorAll(".project_fs_container");
 const projFsBtns = document.querySelectorAll(".project_details_btn");
 
+const navbarSectionContainer = document.getElementById("navbar__container");
+
 projFsBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     const btnFsAttribute = btn.getAttribute("projfs");
@@ -101,6 +103,8 @@ projFsBtns.forEach((btn) =>
 
     fsDetailsContainer.style.visibility = "visible";
     fsDetailsContainer.style.opacity = "1";
+    navbarSectionContainer.style.visibility = "hidden";
+    navbarSectionContainer.style.opacity = "0";
   })
 );
 
@@ -108,8 +112,10 @@ const closeBtn = document.querySelectorAll(".fs_card_close_icon");
 closeBtn.forEach((btn) =>
   btn.addEventListener("click", () => {
     allFsCards.forEach((card) => {
-      card.style.opacity = 0;
       card.style.visibility = "hidden";
+      card.style.opacity = 0;
+      navbarSectionContainer.style.visibility = "visible";
+      navbarSectionContainer.style.opacity = "1";
     });
   })
 );
