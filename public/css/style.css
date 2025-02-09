@@ -28,10 +28,6 @@ section {
 #navbar__container {
   z-index: 10;
   position: fixed;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%; */
   top: 20px;
   left: 0;
 
@@ -73,7 +69,8 @@ section {
 #title__container,
 #skills__container,
 #project__container {
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
   margin-top: 10px;
   margin-bottom: 25px;
   border-radius: 20px;
@@ -114,6 +111,7 @@ section {
   font-family: var(--title-font);
   font-size: 1.5em;
   font-weight: 300;
+  text-align: center;
 }
 
 .bubbles {
@@ -126,6 +124,7 @@ section {
 }
 
 #skills__container {
+  min-height: 50vh;
   position: relative;
   overflow: hidden;
 }
@@ -135,13 +134,13 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  gap: 50px;
+  padding: 100px;
   width: 100%;
   height: 100%;
 }
 
 #skills_header {
-  margin: 100px 100px 0 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -195,7 +194,6 @@ section {
   justify-content: space-between;
   gap: 10px;
   z-index: 1;
-  height: 400px;
   transition: transform 500ms ease-in;
 }
 
@@ -204,15 +202,11 @@ section {
   display: flex;
   flex-direction: column;
   left: 0;
-  height: 500px;
+  height: 550px;
   width: 80vw;
+  padding: 50px;
   border-radius: 20px;
-  overflow: hidden;
   transition: background-color 500ms ease-in, color 500ms ease-in;
-}
-
-.skill_card_header {
-  padding: 50px 50px 0 50px;
 }
 
 .skill_card_header > h3 {
@@ -259,7 +253,6 @@ section {
   align-items: center;
   height: 100%;
   width: 100%;
-  padding-bottom: 50px;
 }
 
 .skill_list_container > ul {
@@ -302,6 +295,7 @@ section {
   position: relative;
   top: 25px;
   position: sticky;
+  overflow: hidden;
 }
 
 #project__div {
@@ -779,18 +773,39 @@ section {
     width: 45px;
   }
 
-  #project__div {
-    flex-direction: column;
-    padding: 0;
+  .skills__card {
+    height: 450px;
+    padding: 40px;
   }
 
-  #project__div > h1 {
-    padding: 100px 100px 0 100px;
+  .skill_card_header > h3 {
+    font-size: 2.5em;
+  }
+
+  .skill_card_header > p {
+    font-size: 1em;
+  }
+
+  .skill-icon {
+    width: 70px;
+  }
+
+  .skill-name {
+    margin-bottom: 0px;
+  }
+
+  #project__div,
+  #skills__div {
+    padding: 50px;
+  }
+
+  #skills__div {
+    gap: 25px;
   }
 
   .project__card {
     height: 500px;
-    width: 550px;
+    width: 500px;
   }
 
   .project__card > h3 {
@@ -798,7 +813,7 @@ section {
   }
 
   .project__card > p {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .project__card > button {
@@ -810,10 +825,6 @@ section {
     gap: 35px 50px;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  .skill-name {
-    margin-bottom: 0px;
   }
 
   .project_fs_container {
@@ -878,19 +889,23 @@ section {
   }
 
   .skill_card_header > h3 {
-    font-size: 2.7em;
+    font-size: 2.4em;
   }
 
   .skill_card_header > p {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   .skill-lang-icon {
-    width: 75px;
+    width: 60px;
   }
 
   .skill-name {
     margin-bottom: 10px;
+  }
+
+  #project__div {
+    flex-direction: column;
   }
 
   .fs_details_title > h1 {
@@ -937,32 +952,25 @@ section {
     gap: 25px;
   }
 
-  #skills_header {
-    margin: 75px 75px 0 75px;
-  }
-
-  .skill_card_header {
-    padding: 45px 45px 0 45px;
+  .skills__card {
+    height: 400px;
+    padding: 35px;
   }
 
   .skill_card_header > h3 {
-    font-size: 2.4em;
+    font-size: 2.2em;
   }
 
   .skill_card_header > p {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
 
   .skill-icon {
-    width: 55px;
+    width: 50px;
   }
 
   .skill-name {
-    font-size: 0.9em;
-  }
-
-  #project__div > h1 {
-    padding: 75px 75px 0 75px;
+    font-size: 0.8em;
   }
 
   #title__text--container > h1 {
@@ -1015,15 +1023,7 @@ section {
   }
 
   #language_list_container > ul {
-    gap: 10px 10px;
-  }
-
-  #skills_header {
-    margin: 65px 65px 0 65px;
-  }
-
-  #project__div > h1 {
-    padding: 65px 65px 10px 65px;
+    gap: 15px 20px;
   }
 
   #left-arrow,
@@ -1077,14 +1077,40 @@ section {
     font-size: 0.8em;
   }
 
+  #project__div,
+  #skills__div {
+    padding: 40px;
+  }
+
   .section_h1 {
     font-size: 3rem !important;
+  }
+
+  .skill_card_header > h3 {
+    font-size: 2em;
+  }
+
+  .skill_card_header > p {
+    font-size: 0.7em;
+  }
+
+  .skill-icon {
+    width: 45px;
+  }
+
+  .skill-name {
+    font-size: 0.8em;
   }
 
   #left-arrow,
   #right-arrow {
     width: 30px;
   }
+
+  #language_list_container > ul {
+    gap: 15px 15px;
+  }
+
 }
 
 @media screen and (max-width: 500px) {
@@ -1100,12 +1126,12 @@ section {
     font-size: 0.75em;
   }
 
-  .section_h1 {
-    font-size: 2.3rem !important;
+  .skills__card {
+    width: 90vw;
   }
 
-  .skill_card_header {
-    padding: 45px 45px 0 45px;
+  .section_h1 {
+    font-size: 2.7em !important;
   }
 
   .skill_card_header > h3 {
@@ -1185,8 +1211,8 @@ section {
     font-weight: 400;
   }
 
-  #skills_header {
-    margin: 40px 40px 0 40px;
+  #language_list_container > ul {
+    gap: 10px 5px;
   }
 
   #skills_header > h1 {
@@ -1203,12 +1229,9 @@ section {
   }
 
   .skills__card {
-    height: 500px;
+    height: 400px;
     width: 90vw;
-  }
-
-  .skill_card_header {
-    padding: 35px 35px 0 35px;
+    padding: 30px;
   }
 
   .skill_card_header > h3 {
@@ -1224,7 +1247,11 @@ section {
   }
 
   .skill-icon {
-    width: 40px;
+    width: 35px;
+  }
+
+  .skill-name {
+    font-size: 0.7em;
   }
 
   #project__div {
@@ -1232,21 +1259,20 @@ section {
   }
 
   #project__div > h1 {
-    padding: 40px 40px 0px 40px;
     font-size: 3em;
   }
 
   .project__card {
-    width: 90%;
+    width: 80vw;
     height: 400px;
   }
 
   .project__card > p {
-    font-size: 0.7em;
+    font-size: 0.6em;
   }
 
   .project__card > h3 {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 
   .project__card > a > img {
@@ -1255,8 +1281,8 @@ section {
 
   .project__card > button {
     border: #ffffffd8 1px solid;
-    padding: 8px 15px;
-    font-size: 0.7em;
+    padding: 6px 13px;
+    font-size: 0.6em;
   }
 
   .contact_header > h1 {
