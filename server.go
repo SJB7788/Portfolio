@@ -13,8 +13,8 @@ func main() {
 		http.ServeFile(w, r, "public/index.html")
 	})
 
-	log.Println("Server running on http://localhost:8080")
-	err := http.ListenAndServe(":8080", nil)
+	log.Println("Server running on 0.0.0.0:8080")
+	err := http.ListenAndServe("0.0.0.0:8080", nil)
 
 	if err != nil {
 		log.Fatal("Server error:", err)

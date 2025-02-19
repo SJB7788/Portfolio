@@ -1,29 +1,31 @@
-# Use the official Go image as the base image
+# Use Go image to build the application
 FROM golang:1.21 AS builder
-
-# Set the working directory
 WORKDIR /app
 
 # Copy Go source code
 COPY server.go .
 
 # Download dependencies
-RUN go mod init myproject && go mod tidy
+RUN go mod init main && go mod tidy
 
-# Build the Go application
-RUN go build -o server
+# Build the Go binary
+RUN go build -o /app/server -ldflags="-extldflags=-static"
 
-# Use a smaller base image for the final container
+# Use minimal Alpine image for final container
 FROM alpine:latest
-
-# Set working directory
 WORKDIR /app
 
-# Copy the built Go server binary
-COPY --from=builder /app/server .
+# Install required dependencies for Go binaries
+RUN apk add --no-cache libc6-compat  
+
+# Copy the Go binary from the builder stage
+COPY --from=builder /app/server /app/server
+
+# Set executable permissions
+RUN chmod +x /app/server  
 
 # Copy static files
-COPY static ./static
+COPY public ./public
 
 # Expose port 8080
 EXPOSE 8080
