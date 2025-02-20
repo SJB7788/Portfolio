@@ -1,5 +1,6 @@
 # Use Go image to build the application
 FROM golang:1.21 AS builder
+
 WORKDIR /app
 
 # Copy Go source code

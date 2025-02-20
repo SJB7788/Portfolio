@@ -600,18 +600,8 @@ section {
   overflow: auto;
 }
 
-.fs_details_tech > ul {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-}
-
-.fs_details_tech > ul > li {
-  width: 50px;
-}
-
 .fs_details_detail > p {
+  margin: 10px 0;
   color: #000;
   font-family: var(--subtext-font);
   font-weight: 300;
@@ -620,6 +610,20 @@ section {
 
 .fs_details_detail > p > span {
   font-weight: bold;
+}
+
+.fs_details_detail > ul > li > span {
+  font-weight: 500;
+}
+
+.fs_details_detail > ul {
+  margin: 0;
+}
+
+.fs_details_detail > ul > li {
+  font-family: var(--subtext-font);
+  font-weight: 300;
+  font-size: 0.9em;
 }
 
 #project_scroll__container {
@@ -678,6 +682,7 @@ section {
   .fs_details_title > p {
     font-size: 1em;
   }
+
   z .fs_details_detail > p {
     font-size: 0.8em;
   }
@@ -713,6 +718,14 @@ section {
 
   .fs_details_title {
     margin-bottom: 25px;
+  }
+
+  .fs_details_title > h1 {
+    font-size: 2.8em;
+  }
+
+  .fs_details_title > p {
+    font-size: 0.95em;
   }
 
   .fs_header_container {
