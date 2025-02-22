@@ -90,21 +90,22 @@ const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
 // Project Card Details
 const allFsCards = document.querySelectorAll(".project_fs_container");
 const projFsBtns = document.querySelectorAll(".project_details_btn");
+const body = document.body;
 
 const navbarSectionContainer = document.getElementById("navbar__container");
 
 projFsBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     const btnFsAttribute = btn.getAttribute("projfs");
-    console.log(btnFsAttribute);
-
     const fsDetailsContainer = document.getElementById(`${btnFsAttribute}`);
-    console.log(fsDetailsContainer);
 
     fsDetailsContainer.style.visibility = "visible";
     fsDetailsContainer.style.opacity = "1";
     navbarSectionContainer.style.visibility = "hidden";
     navbarSectionContainer.style.opacity = "0";
+
+    fsDetailsContainer.scrollIntoView({behavior: "smooth"});
+    body.style.overflow = "hidden";
   })
 );
 
@@ -116,6 +117,7 @@ closeBtn.forEach((btn) =>
       card.style.opacity = 0;
       navbarSectionContainer.style.visibility = "visible";
       navbarSectionContainer.style.opacity = "1";
+      body.style.overflow = "unset";
     });
   })
 );
