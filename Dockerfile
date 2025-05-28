@@ -4,7 +4,7 @@ FROM golang:1.21 AS builder
 WORKDIR /app
 
 # Copy Go source code
-COPY server.go .
+COPY ["server.go", "SeungJae_Baek_Resume.pdf", "./"]
 
 # Download dependencies
 RUN go mod init main && go mod tidy
@@ -24,6 +24,9 @@ COPY --from=builder /app/server /app/server
 
 # Set executable permissions
 RUN chmod +x /app/server  
+
+# Copy Resume PDF
+COPY SeungJae_Baek_Resume.pdf .
 
 # Copy static files
 COPY public ./public

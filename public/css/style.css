@@ -595,6 +595,18 @@ section {
   box-shadow: #00000025 0px 10px 10px;
 }
 
+.fs_card_details_bcitra {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  background-color: #fff;
+  border-radius: 20px;
+  max-height: 75%;
+  width: fit-content;
+  box-shadow: #00000025 0px 10px 10px;
+}
+
 .fs_details_detail {
   height: 100%;
   overflow: auto;
@@ -1023,6 +1035,7 @@ section {
   }
 
   .fs_card_details {
+    max-height: 100% !important; 
     margin: 10px 0 50px 0;
   }
 
@@ -1129,12 +1142,16 @@ section {
   #language_list_container > ul {
     gap: 15px 15px;
   }
-
 }
 
 @media screen and (max-width: 500px) {
   body {
     margin: 0px;
+  }
+
+  #navbar__ul {
+    gap: 10px;
+    padding: 10px 15px;
   }
 
   .section {
@@ -1217,7 +1234,8 @@ section {
   }
 
   #navbar__ul {
-    gap: 10px;
+    padding: 8px 13px;
+    gap: 5px;
   }
 
   #navbar__ul > li {
@@ -1305,6 +1323,14 @@ section {
 
   .project__card > a > img {
     width: 80%;
+  }
+
+  .fs_details_title > h1 {
+    font-size: 1.5em;
+  }
+
+  .fs_card_details {
+    padding: 25px;
   }
 
   .project__card > button {
