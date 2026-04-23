@@ -44,7 +44,9 @@ section {
   gap: 50px;
   border-radius: 50px;
   list-style-type: none;
-  transition: background-color 300ms ease-in, backdrop-filter 300ms ease-in;
+  transition:
+    background-color 300ms ease-in,
+    backdrop-filter 300ms ease-in;
 }
 
 .show_nav_bg {
@@ -123,11 +125,13 @@ section {
   height: 500px;
   border-radius: 50%;
   filter: blur(100px);
-  transition: left 10000ms ease-in, top 10000ms ease-in;
+  transition:
+    left 10000ms ease-in,
+    top 10000ms ease-in;
 }
 
 #skills__container {
-  min-height: 50vh;
+  /*min-height: 50vh;*/
   position: relative;
   overflow: hidden;
 }
@@ -153,7 +157,7 @@ section {
   margin: 0;
   font-family: var(--title-font);
   font-weight: 600;
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-style: normal;
   color: #1d3d6f;
 }
@@ -208,7 +212,9 @@ section {
   width: 80vw;
   padding: 50px;
   border-radius: 20px;
-  transition: background-color 500ms ease-in, color 500ms ease-in;
+  transition:
+    background-color 500ms ease-in,
+    color 500ms ease-in;
 }
 
 .skill_card_header > h3 {
@@ -381,7 +387,9 @@ section {
   font-weight: 300;
   font-size: 1em;
   cursor: pointer;
-  transition: background-color 200ms ease-in, color 200ms ease-in;
+  transition:
+    background-color 200ms ease-in,
+    color 200ms ease-in;
 }
 
 .project__card > button:hover {
@@ -467,7 +475,14 @@ section {
   overflow: hidden;
   border-radius: 20px;
   max-height: 100vh;
-  transition: opacity 200ms ease-in;
+}
+
+.hidden {
+  animation: fadeOut 400ms ease-in-out forwards;
+}
+
+.visible {
+  animation: fadeIn 400ms ease-in-out forwards;
 }
 
 #project_snowscraper_fs {
@@ -680,6 +695,35 @@ section {
   position: absolute;
   bottom: 0px;
   font-family: var(--title-font);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  1% {
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media screen and (max-width: 1400px) {
@@ -1035,7 +1079,7 @@ section {
   }
 
   .fs_card_details {
-    max-height: 100% !important; 
+    max-height: 100% !important;
     margin: 10px 0 50px 0;
   }
 

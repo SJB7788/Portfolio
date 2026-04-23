@@ -21,13 +21,13 @@ bubble.startBubbles();
 const leftArrowIcon = document.getElementById("left-arrow");
 const rightArrowIcon = document.getElementById("right-arrow");
 
-const skillScrollContainer = document.getElementById("skills_card__container");
 const skillScroll = document.querySelector(".skills__scroll");
+const skillScrollContainer = document.getElementById("skills_card__container");
 
 const scrollView = new ScrollView.ScrollView(
   skillScroll,
   skillScrollContainer,
-  10
+  10,
 );
 
 leftArrowIcon.addEventListener("click", () => scrollView.moveNodeToLeft());
@@ -63,7 +63,7 @@ skillIcons.forEach((icon) => {
 // ** Projects Section **
 
 const projectMarginContainer = document.getElementById(
-  "project_scroll__container"
+  "project_scroll__container",
 );
 const scrollContainer = document.getElementById("project__scroll");
 const projectContainer = document.getElementById("project__container");
@@ -79,12 +79,12 @@ const marginValue = projectNodeHeight * (projectNodeArray.length - 1); // Calcul
 
 projectMarginContainer.style.setProperty(
   "--project-stack-height",
-  `${marginValue}px`
+  `${marginValue}px`,
 ); // Set project margin container property
 
 const projectScrollGallery = new VeritcalScrollGallery.VerticalScrollGallery(
   projectNodeArray,
-  nodeOffsetValue
+  nodeOffsetValue,
 );
 
 // Project Card Details
@@ -99,27 +99,32 @@ projFsBtns.forEach((btn) =>
     const btnFsAttribute = btn.getAttribute("projfs");
     const fsDetailsContainer = document.getElementById(`${btnFsAttribute}`);
 
-    fsDetailsContainer.style.visibility = "visible";
-    fsDetailsContainer.style.opacity = "1";
+    fsDetailsContainer.classList.remove("hidden");
+    fsDetailsContainer.classList.add("visible");
+
     navbarSectionContainer.style.visibility = "hidden";
     navbarSectionContainer.style.opacity = "0";
 
-    fsDetailsContainer.scrollIntoView({behavior: "smooth"});
+    fsDetailsContainer.scrollIntoView({ behavior: "smooth" });
     body.style.overflow = "hidden";
-  })
+  }),
 );
 
 const closeBtn = document.querySelectorAll(".fs_card_close_icon");
 closeBtn.forEach((btn) =>
   btn.addEventListener("click", () => {
-    allFsCards.forEach((card) => {
-      card.style.visibility = "hidden";
-      card.style.opacity = 0;
-      navbarSectionContainer.style.visibility = "visible";
-      navbarSectionContainer.style.opacity = "1";
-      body.style.overflow = "unset";
-    });
-  })
+    const btnFsAttribute = btn.getAttribute("projfs");
+    const fsDetailsContainer = document.getElementById(`${btnFsAttribute}`);
+
+    // allFsCards.forEach((card) => {
+    fsDetailsContainer.classList.remove("visible");
+    fsDetailsContainer.classList.add("hidden");
+
+    navbarSectionContainer.style.visibility = "visible";
+    navbarSectionContainer.style.opacity = "1";
+    body.style.overflow = "unset";
+    // });
+  }),
 );
 
 // ** Navbar Section **
@@ -151,19 +156,19 @@ hideNavbarBackground();
 
 // Navbar item click event
 navHomeItem.addEventListener("click", () =>
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" }),
 );
 
 navSkillItem.addEventListener("click", () =>
-  skillSection.scrollIntoView({ behavior: "smooth" })
+  skillSection.scrollIntoView({ behavior: "smooth" }),
 );
 
 navProjItem.addEventListener("click", () =>
-  projectContainer.scrollIntoView({ behavior: "smooth" })
+  projectContainer.scrollIntoView({ behavior: "smooth" }),
 );
 
 navContactItem.addEventListener("click", () =>
-  footer.scrollIntoView({ behavior: "smooth" })
+  footer.scrollIntoView({ behavior: "smooth" }),
 );
 
 // Scroll Event Logic
@@ -177,15 +182,20 @@ document.addEventListener("scroll", () => {
   const windowScrollY = window.scrollY;
 
   // navbar item highlight logic
-  if (windowScrollY >= footerRect.top - projSectionRect.height / 2){
+  if (windowScrollY >= footerRect.top - projSectionRect.height / 2) {
     allNavItems.forEach((item) => item.classList.remove("nav_focus"));
     navContactItem.classList.add("nav_focus");
-  }
-  else if (windowScrollY >= projSectionRect.top - projSectionRect.height / 2) {
+  } else if (
+    windowScrollY >=
+    projSectionRect.top - projSectionRect.height / 2
+  ) {
     // project is at the very bottom
     allNavItems.forEach((item) => item.classList.remove("nav_focus"));
     navProjItem.classList.add("nav_focus");
-  } else if (windowScrollY >= skillSectionRect.top - skillSectionRect.height / 2) {
+  } else if (
+    windowScrollY >=
+    skillSectionRect.top - skillSectionRect.height / 2
+  ) {
     allNavItems.forEach((item) => item.classList.remove("nav_focus"));
     navSkillItem.classList.add("nav_focus");
   } else {
