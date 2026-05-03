@@ -448,16 +448,16 @@ section {
   color: #ffffff;
 }
 
-#bcitraconnect__card {
+#praxis__card {
   background-color: #1d3d6f;
 }
 
-#bcitraconnect__card > p,
-#bcitraconnect__card > h3 {
+#praxis__card > p,
+#praxis__card > h3 {
   color: #ffffff;
 }
 
-#bcitraconnect__card > button:hover {
+#praxis__card > button:hover {
   color: #ffffff;
 }
 
@@ -497,7 +497,7 @@ section {
   background-color: #fffef9;
 }
 
-#project_bcitraconnect_fs {
+#project_praxis_fs {
   background-color: #1d3d6f;
 }
 
@@ -610,7 +610,7 @@ section {
   box-shadow: #00000025 0px 10px 10px;
 }
 
-.fs_card_details_bcitra {
+.fs_card_details_praxis {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1065,6 +1065,7 @@ section {
   }
 
   .fs_inner_container {
+    overflow-y: auto;
     flex-direction: column;
     margin-top: 50px;
   }
