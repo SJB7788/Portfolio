@@ -19,11 +19,12 @@ class VerticalScrollGallery {
   moveNodes(scrollValue) {
     for (let i = 1; i <= this.size - 1; i++) {
       const offset = this.nodeSize;
+      console.log(this.offsetY)
 
-      if (scrollValue <= offset * i) {
+      if (scrollValue <= this.offsetY * i) {
         this.nodeArray[i].style.transform = `translateY(-${scrollValue}px)`;
-      } else if (scrollValue > offset * i) {
-        this.nodeArray[i].style.transform = `translateY(-${offset * i}px)`;
+      } else if (scrollValue > this.offsetY * i) {
+        this.nodeArray[i].style.transform = `translateY(-${this.offsetY * i}px)`;
       }
     }
   }

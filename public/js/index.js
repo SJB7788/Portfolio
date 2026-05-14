@@ -70,12 +70,13 @@ const projectContainer = document.getElementById("project__container");
 const projectNodeArray = document.querySelectorAll(".project__card");
 
 // Vertical Scroll Configuration
-const nodeOffsetValue = 10; // Vertical offset of each node
+const nodeOffsetValue = 850; // Vertical offset of each node
 
 const projectNodeRect = projectNodeArray[0].getBoundingClientRect(); // Rect of one project card
 const projectNodeHeight = projectNodeRect.height; // Extract height of a project node
+const projectNodeBottomMargin = parseInt(window.getComputedStyle(projectNodeArray[0]).marginBottom); // Extract margin of a project node
 
-const marginValue = projectNodeHeight * (projectNodeArray.length - 1); // Calculate the margin needed for scroll
+const marginValue = (projectNodeHeight + projectNodeBottomMargin) * (projectNodeArray.length - 1); // Calculate the margin needed for scroll
 
 projectMarginContainer.style.setProperty(
   "--project-stack-height",
@@ -209,6 +210,7 @@ document.addEventListener("scroll", () => {
   } else {
     hideNavbarBackground();
   }
+  
   if (windowScrollY >= projectYPos) {
     const nodeScrollValue = document.documentElement.scrollTop - projectYPos;
     projectScrollGallery.moveNodes(nodeScrollValue);
